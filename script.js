@@ -24,10 +24,11 @@ function initParticles() {
     let mouse = { x: null, y: null, radius: 150 };
     let animationId;
 
+    // Elegant tech colors: Soft blue, soft cyan, and white
     const COLORS = [
-        { r: 0, g: 240, b: 255 },    // Cyan
-        { r: 255, g: 0, b: 170 },    // Magenta
-        { r: 139, g: 92, b: 246 },   // Purple
+        { r: 59, g: 130, b: 246 },   // Blue
+        { r: 6, g: 182, b: 212 },    // Cyan
+        { r: 255, g: 255, b: 255 },  // White
     ];
 
     function resize() {
@@ -37,40 +38,37 @@ function initParticles() {
 
     function createParticles() {
         particles = [];
-        const count = Math.min(Math.floor((width * height) / 12000), 120);
+        // Fewer particles for a cleaner look
+        const count = Math.min(Math.floor((width * height) / 15000), 80);
         for (let i = 0; i < count; i++) {
             const color = COLORS[Math.floor(Math.random() * COLORS.length)];
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 2 + 0.5,
+                vx: (Math.random() - 0.5) * 0.2, // Slower movement
+                vy: (Math.random() - 0.5) * 0.2, // Slower movement
+                size: Math.random() * 1.5 + 0.5, // Smaller particles
                 color: color,
-                alpha: Math.random() * 0.5 + 0.2,
-                pulseSpeed: Math.random() * 0.02 + 0.005,
+                alpha: Math.random() * 0.3 + 0.1, // Subtle opacity
+                pulseSpeed: Math.random() * 0.01 + 0.005,
                 pulseOffset: Math.random() * Math.PI * 2,
             });
         }
     }
 
     function drawParticle(p, time) {
-        const pulse = Math.sin(time * p.pulseSpeed + p.pulseOffset) * 0.3 + 0.7;
+        // Very subtle pulsing
+        const pulse = Math.sin(time * p.pulseSpeed + p.pulseOffset) * 0.2 + 0.8;
         const alpha = p.alpha * pulse;
+        
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha})`;
         ctx.fill();
-
-        // Glow
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.1})`;
-        ctx.fill();
     }
 
     function drawConnections() {
-        const maxDist = 130;
+        const maxDist = 120; // Shorter distance for cleaner lines
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
@@ -78,7 +76,7 @@ function initParticles() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < maxDist) {
-                    const alpha = (1 - dist / maxDist) * 0.12;
+                    const alpha = (1 - dist / maxDist) * 0.08; // Very subtle lines
                     const p = particles[i];
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
@@ -93,7 +91,7 @@ function initParticles() {
 
     function updateParticles() {
         for (const p of particles) {
-            // Mouse interaction
+            // Mouse interaction (soft repulsion)
             if (mouse.x !== null) {
                 const dx = p.x - mouse.x;
                 const dy = p.y - mouse.y;
@@ -101,12 +99,12 @@ function initParticles() {
                 if (dist < mouse.radius) {
                     const force = (mouse.radius - dist) / mouse.radius;
                     const angle = Math.atan2(dy, dx);
-                    p.vx += Math.cos(angle) * force * 0.3;
-                    p.vy += Math.sin(angle) * force * 0.3;
+                    p.vx += Math.cos(angle) * force * 0.1;
+                    p.vy += Math.sin(angle) * force * 0.1;
                 }
             }
 
-            // Damping
+            // Damping for smooth slow down
             p.vx *= 0.99;
             p.vy *= 0.99;
 
@@ -114,11 +112,11 @@ function initParticles() {
             p.x += p.vx;
             p.y += p.vy;
 
-            // Wrap
-            if (p.x < -10) p.x = width + 10;
-            if (p.x > width + 10) p.x = -10;
-            if (p.y < -10) p.y = height + 10;
-            if (p.y > height + 10) p.y = -10;
+            // Soft wrap
+            if (p.x < -20) p.x = width + 20;
+            if (p.x > width + 20) p.x = -20;
+            if (p.y < -20) p.y = height + 20;
+            if (p.y > height + 20) p.y = -20;
         }
     }
 
@@ -166,7 +164,7 @@ function initNavbar() {
 
     // Scroll class
     function onScroll() {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 20) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
@@ -223,14 +221,15 @@ function initScrollReveal() {
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Stagger animation
+                // Stagger animation for grid items
                 const parent = entry.target.closest('.project-grid, .education-grid, .demo-reels, .professional-skills');
                 if (parent) {
                     const siblings = parent.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
                     const idx = Array.from(siblings).indexOf(entry.target);
-                    entry.target.style.transitionDelay = `${idx * 0.1}s`;
+                    // Shorter delay for cleaner modern feel
+                    entry.target.style.transitionDelay = `${idx * 0.08}s`;
                 }
 
                 entry.target.classList.add('revealed');
@@ -252,7 +251,6 @@ function initSkillBars() {
                 if (entry.isIntersecting) {
                     const width = entry.target.getAttribute('data-width');
                     entry.target.style.width = width + '%';
-                    entry.target.classList.add('animated');
                     observer.unobserve(entry.target);
                 }
             });
@@ -283,9 +281,9 @@ function initPortfolioFilters() {
                 if (filter === 'all' || category === filter) {
                     card.classList.remove('hidden');
                     card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
+                    card.style.transform = 'translateY(15px)';
                     requestAnimationFrame(() => {
-                        card.style.transition = 'all 0.4s ease';
+                        card.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
                     });
@@ -300,9 +298,9 @@ function initPortfolioFilters() {
                 if (filter === 'all' || category === filter) {
                     card.style.display = '';
                     card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
+                    card.style.transform = 'translateY(15px)';
                     requestAnimationFrame(() => {
-                        card.style.transition = 'all 0.4s ease';
+                        card.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
                     });
@@ -336,14 +334,13 @@ function initContactForm() {
         }
 
         // Show success state
-        const formParent = form.parentElement;
         form.style.opacity = '0';
-        form.style.transform = 'translateY(20px)';
+        form.style.transform = 'translateY(15px)';
 
         setTimeout(() => {
             form.innerHTML = `
                 <div class="form-success">
-                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                         <polyline points="22 4 12 14.01 9 11.01"/>
                     </svg>
@@ -351,6 +348,7 @@ function initContactForm() {
                     <p>Thank you, ${name}. I'll get back to you soon.</p>
                 </div>
             `;
+            form.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
             form.style.opacity = '1';
             form.style.transform = 'translateY(0)';
         }, 300);
@@ -375,52 +373,3 @@ function initSmoothScroll() {
         });
     });
 }
-
-/* ==================== TYPING EFFECT (HERO TAGLINE) ==================== */
-(function initTypingEffect() {
-    const tagline = document.querySelector('.hero-tagline');
-    if (!tagline) return;
-
-    const fullText = tagline.textContent;
-    const decorator = tagline.querySelector('.tagline-decorator');
-    const decoratorText = decorator ? decorator.textContent : '';
-
-    // Only run after a small delay to let the page load
-    setTimeout(() => {
-        const textOnly = fullText.replace(decoratorText, '').trim();
-        tagline.innerHTML = `<span class="tagline-decorator">${decoratorText}</span><span class="typed-text"></span><span class="cursor-blink">|</span>`;
-
-        const typedEl = tagline.querySelector('.typed-text');
-        const cursorEl = tagline.querySelector('.cursor-blink');
-
-        // Style cursor
-        cursorEl.style.color = 'var(--neon-cyan)';
-        cursorEl.style.animation = 'cursor-blink 1s step-end infinite';
-
-        // Add cursor blink keyframe
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes cursor-blink {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        let charIndex = 0;
-        function type() {
-            if (charIndex < textOnly.length) {
-                typedEl.textContent += textOnly[charIndex];
-                charIndex++;
-                setTimeout(type, 50 + Math.random() * 40);
-            } else {
-                // Remove cursor after typing
-                setTimeout(() => {
-                    cursorEl.style.display = 'none';
-                }, 2000);
-            }
-        }
-
-        type();
-    }, 800);
-})();

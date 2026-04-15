@@ -14,7 +14,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -24,7 +24,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#hero" class="nav-logo">
-                <span class="logo-bracket">&lt;</span>SLH<span class="logo-bracket">/&gt;</span>
+                SLH<span class="logo-dot">.</span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about" class="nav-link" data-section="about">About</a></li>
@@ -45,42 +45,37 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
         <canvas class="particle-canvas" id="particleCanvas"></canvas>
-        <div class="hero-scanlines"></div>
-        <div class="hero-grid-overlay"></div>
         <div class="hero-content">
             <div class="hero-badge reveal-up">
                 <span class="badge-dot"></span>
                 Available for projects
             </div>
             <h1 class="hero-name reveal-up">
-                <span class="glitch-text" data-text="Sergio López">Sergio López</span>
-                <span class="hero-surname glitch-text" data-text="Herrero">Herrero</span>
+                Sergio López <br/>
+                <span class="hero-surname">Herrero</span>
             </h1>
             <div class="hero-title-wrapper reveal-up">
                 <span class="hero-title-item">3D Designer</span>
-                <span class="hero-title-divider">|</span>
+                <span class="hero-title-divider">·</span>
                 <span class="hero-title-item">VFX Artist</span>
-                <span class="hero-title-divider">|</span>
+                <span class="hero-title-divider">·</span>
                 <span class="hero-title-item">UE5 Developer</span>
             </div>
             <p class="hero-tagline reveal-up">
-                <span class="tagline-decorator">//</span>
-                Creating immersive real-time experiences
+                Creating immersive real-time experiences.
             </p>
             <div class="hero-cta reveal-up">
                 <a href="#portfolio" class="btn btn-primary">
-                    <span class="btn-icon">&#9654;</span>
                     View Portfolio
                 </a>
                 <a href="#contact" class="btn btn-outline">
-                    <span class="btn-icon">&#9993;</span>
-                    Contact
+                    Contact Me
                 </a>
             </div>
-            <div class="hero-scroll-indicator">
-                <div class="scroll-line"></div>
-                <span class="scroll-text">Scroll</span>
-            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">Scroll to explore</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -88,9 +83,8 @@
     <section class="section about" id="about">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag">&lt;01&gt;</span>
-                <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
-                <div class="section-line"></div>
+                <span class="section-tag">01. PROFILE</span>
+                <h2 class="section-title">About Me</h2>
             </div>
             <div class="about-grid">
                 <div class="about-text reveal-left">
@@ -101,12 +95,12 @@
                     <p>
                         With strong experience in 3D modeling, visual effects, and interactive environments,
                         I focus on creating high-quality visual and interactive content that pushes the boundaries
-                        of real-time rendering and digital experiences.
+                        of real-time rendering. By bridging the gap between creative vision and technical execution, 
+                        I deliver modern experiences that captivate and inspire.
                     </p>
                     <p>
-                        Currently working as a <strong>Programmer and 3D Modeler</strong> with Unreal Engine 5,
-                        I bridge the gap between creative vision and technical execution, delivering immersive
-                        experiences that captivate and inspire.
+                        Currently working as a <strong>Programmer and 3D Modeler</strong> with Unreal Engine 5, 
+                        I am always exploring new ways to enhance interactive storytelling through advanced environments and logic.
                     </p>
                     <div class="about-location">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -116,24 +110,30 @@
                 <div class="about-cards reveal-right">
                     <div class="about-card">
                         <div class="about-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5"/><path d="M12 12v9"/><path d="M12 12L3 7.5"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5"/><path d="M12 12v9"/><path d="M12 12L3 7.5"/></svg>
                         </div>
-                        <h3>Unreal Engine 5</h3>
-                        <p>Real-time rendering, blueprints, interactive environments & VR experiences</p>
+                        <div class="about-card-content">
+                            <h3>Unreal Engine 5</h3>
+                            <p>Real-time rendering, blueprints, interactive environments & VR experiences</p>
+                        </div>
                     </div>
                     <div class="about-card">
                         <div class="about-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                         </div>
-                        <h3>3D Modeling</h3>
-                        <p>High-poly & game-ready models with Maya, 3ds Max, ZBrush & Mudbox</p>
+                        <div class="about-card-content">
+                            <h3>3D Modeling</h3>
+                            <p>High-poly & game-ready models with Maya, 3ds Max, ZBrush & Mudbox</p>
+                        </div>
                     </div>
                     <div class="about-card">
                         <div class="about-card-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
                         </div>
-                        <h3>Visual Effects</h3>
-                        <p>Particle systems, simulations & compositing with Houdini & After Effects</p>
+                        <div class="about-card-content">
+                            <h3>Visual Effects</h3>
+                            <p>Particle systems, simulations & compositing with Houdini & After Effects</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,9 +144,8 @@
     <section class="section portfolio" id="portfolio">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag">&lt;02&gt;</span>
-                <h2 class="section-title">Port<span class="text-gradient">folio</span></h2>
-                <div class="section-line"></div>
+                <span class="section-tag">02. WORK</span>
+                <h2 class="section-title">Portfolio</h2>
             </div>
 
             <!-- Category Filters -->
@@ -171,9 +170,11 @@
                         </iframe>
                     </div>
                     <div class="reel-info">
-                        <span class="reel-badge">Demo Reel</span>
+                        <div class="reel-header">
+                            <span class="reel-badge">Demo Reel</span>
+                        </div>
                         <h3>3D Demo Reel</h3>
-                        <p>A showcase of 3D modeling, texturing, and rendering projects created with industry-standard tools.</p>
+                        <p>A showcase of 3D modeling, texturing, and rendering projects created with industry-standard tools for professional pipelines.</p>
                         <div class="reel-tools">
                             <span>Maya</span>
                             <span>3ds Max</span>
@@ -194,9 +195,11 @@
                         </iframe>
                     </div>
                     <div class="reel-info">
-                        <span class="reel-badge badge-magenta">Demo Reel</span>
+                        <div class="reel-header">
+                            <span class="reel-badge">Demo Reel</span>
+                        </div>
                         <h3>VFX Demo Reel</h3>
-                        <p>Visual effects work including particle systems, simulations, compositing, and real-time VFX.</p>
+                        <p>Visual effects work including particle systems, complex simulations, compositing, and performance-optimized real-time VFX.</p>
                         <div class="reel-tools">
                             <span>Houdini</span>
                             <span>After Effects</span>
@@ -212,7 +215,7 @@
                 <div class="project-card reveal-up" data-category="unreal">
                     <div class="project-visual">
                         <div class="project-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5"/><path d="M12 12v9"/><path d="M12 12L3 7.5"/></svg>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5"/><path d="M12 12v9"/><path d="M12 12L3 7.5"/></svg>
                         </div>
                     </div>
                     <div class="project-info">
@@ -229,11 +232,11 @@
                 <div class="project-card reveal-up" data-category="3d">
                     <div class="project-visual">
                         <div class="project-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                         </div>
                     </div>
                     <div class="project-info">
-                        <span class="project-category-tag tag-cyan">3D Modeling</span>
+                        <span class="project-category-tag">3D Modeling</span>
                         <h3>High-Poly Character Model</h3>
                         <p>Detailed character sculpt and retopology, optimized for real-time rendering with PBR textures.</p>
                         <div class="project-tools">
@@ -246,11 +249,11 @@
                 <div class="project-card reveal-up" data-category="vfx">
                     <div class="project-visual">
                         <div class="project-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
                         </div>
                     </div>
                     <div class="project-info">
-                        <span class="project-category-tag tag-magenta">VFX</span>
+                        <span class="project-category-tag">VFX</span>
                         <h3>Real-Time Particle System</h3>
                         <p>Advanced particle effects and simulations for game environments using Niagara in UE5.</p>
                         <div class="project-tools">
@@ -262,7 +265,7 @@
                 <div class="project-card reveal-up" data-category="unreal">
                     <div class="project-visual">
                         <div class="project-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                         </div>
                     </div>
                     <div class="project-info">
@@ -284,18 +287,17 @@
     <section class="section skills" id="skills">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag">&lt;03&gt;</span>
-                <h2 class="section-title">Sk<span class="text-gradient">ills</span></h2>
-                <div class="section-line"></div>
+                <span class="section-tag">03. CAPABILITIES</span>
+                <h2 class="section-title">Skills & Tools</h2>
             </div>
             <div class="skills-grid">
                 <!-- Software Skills -->
                 <div class="skills-column reveal-left">
                     <h3 class="skills-subtitle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        Software & Tools
+                        Software Arsenal
                     </h3>
                     <div class="skill-bars">
+                        <!-- Skill Item -->
                         <div class="skill-bar-item">
                             <div class="skill-bar-header">
                                 <span>Unreal Engine 5</span>
@@ -325,15 +327,6 @@
                         </div>
                         <div class="skill-bar-item">
                             <div class="skill-bar-header">
-                                <span>Houdini</span>
-                                <span class="skill-percent">75%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill fill-magenta" data-width="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
                                 <span>ZBrush</span>
                                 <span class="skill-percent">85%</span>
                             </div>
@@ -343,29 +336,11 @@
                         </div>
                         <div class="skill-bar-item">
                             <div class="skill-bar-header">
-                                <span>Mudbox</span>
-                                <span class="skill-percent">70%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill fill-purple" data-width="70"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
                                 <span>Photoshop</span>
                                 <span class="skill-percent">80%</span>
                             </div>
                             <div class="skill-bar-track">
-                                <div class="skill-bar-fill fill-magenta" data-width="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Premiere Pro</span>
-                                <span class="skill-percent">75%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill fill-purple" data-width="75"></div>
+                                <div class="skill-bar-fill" data-width="80"></div>
                             </div>
                         </div>
                         <div class="skill-bar-item">
@@ -374,7 +349,34 @@
                                 <span class="skill-percent">80%</span>
                             </div>
                             <div class="skill-bar-track">
-                                <div class="skill-bar-fill fill-magenta" data-width="80"></div>
+                                <div class="skill-bar-fill" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Premiere Pro</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Houdini</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Mudbox</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" data-width="70"></div>
                             </div>
                         </div>
                     </div>
@@ -382,37 +384,44 @@
                 <!-- Professional Skills -->
                 <div class="skills-column reveal-right">
                     <h3 class="skills-subtitle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        Professional Skills
+                        Core Competencies
                     </h3>
                     <div class="professional-skills">
                         <div class="pro-skill-card">
                             <div class="pro-skill-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             </div>
-                            <h4>Teamwork</h4>
-                            <p>Collaborative mindset with cross-functional teams</p>
-                        </div>
-                        <div class="pro-skill-card">
-                            <div class="pro-skill-icon icon-magenta">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <div class="pro-skill-text">
+                                <h4>Teamwork</h4>
+                                <p>Collaborative mindset with cross-functional teams in agile environments.</p>
                             </div>
-                            <h4>Leadership</h4>
-                            <p>Guiding projects from concept to final delivery</p>
-                        </div>
-                        <div class="pro-skill-card">
-                            <div class="pro-skill-icon icon-purple">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            </div>
-                            <h4>Responsibility</h4>
-                            <p>Reliable delivery with attention to quality</p>
                         </div>
                         <div class="pro-skill-card">
                             <div class="pro-skill-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             </div>
-                            <h4>Communication</h4>
-                            <p>Clear articulation of ideas and technical concepts</p>
+                            <div class="pro-skill-text">
+                                <h4>Leadership</h4>
+                                <p>Guiding technical and creative projects from concept to final delivery.</p>
+                            </div>
+                        </div>
+                        <div class="pro-skill-card">
+                            <div class="pro-skill-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div class="pro-skill-text">
+                                <h4>Responsibility</h4>
+                                <p>Reliable execution with deep attention to detail and optimization.</p>
+                            </div>
+                        </div>
+                        <div class="pro-skill-card">
+                            <div class="pro-skill-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <div class="pro-skill-text">
+                                <h4>Communication</h4>
+                                <p>Clear articulation of complex technical concepts to non-technical peers.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -424,26 +433,25 @@
     <section class="section experience" id="experience">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag">&lt;04&gt;</span>
-                <h2 class="section-title">Exper<span class="text-gradient">ience</span></h2>
-                <div class="section-line"></div>
+                <span class="section-tag">04. TIMELINE</span>
+                <h2 class="section-title">Experience</h2>
             </div>
             <div class="timeline">
                 <div class="timeline-item reveal-left">
                     <div class="timeline-dot"></div>
                     <div class="timeline-card">
                         <div class="timeline-date">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                             Nov 2023 — Present
                         </div>
-                        <h3>Programmer / 3D Modeler</h3>
-                        <h4>Enclave Formación S.L.</h4>
-                        <p>Working with Unreal Engine 5 to develop interactive experiences, 3D models, and real-time visualizations. Responsible for programming gameplay systems, creating optimized 3D assets, and implementing visual effects.</p>
-                        <div class="timeline-tags">
-                            <span>Unreal Engine 5</span>
-                            <span>C++</span>
-                            <span>Blueprints</span>
-                            <span>3D Modeling</span>
+                        <div class="timeline-content-inner">
+                            <h3>Programmer / 3D Modeler</h3>
+                            <h4>Enclave Formación S.L.</h4>
+                            <p>Developing interactive experiences, 3D models, and real-time visualizations using Unreal Engine 5. Responsible for programming gameplay logic, optimizing high-fidelity 3D assets, and integrating modern visual effects into production pipelines.</p>
+                            <div class="timeline-tags">
+                                <span>Unreal Engine 5</span>
+                                <span>C++ & Blueprints</span>
+                                <span>3D Pipeline</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -451,17 +459,17 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-card">
                         <div class="timeline-date">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                             Apr 2018 — Jun 2019
                         </div>
-                        <h3>3D Modeler Intern</h3>
-                        <h4>Science Museum of Valladolid</h4>
-                        <p>Created 3D models and visualizations for educational exhibits and museum displays. Collaborated with the museum team to bring scientific concepts to life through interactive digital content.</p>
-                        <div class="timeline-tags">
-                            <span>3D Modeling</span>
-                            <span>Maya</span>
-                            <span>3ds Max</span>
-                            <span>Visualization</span>
+                        <div class="timeline-content-inner">
+                            <h3>3D Modeler Intern</h3>
+                            <h4>Science Museum of Valladolid</h4>
+                            <p>Created 3D models and conceptual visualizations for educational exhibits and museum displays. Collaborated closely with the curation team to transform scientific concepts into engaging, interactive digital content.</p>
+                            <div class="timeline-tags">
+                                <span>3D Content</span>
+                                <span>Autodesk Maya</span>
+                                <span>Visualization</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -473,66 +481,74 @@
     <section class="section education" id="education">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag">&lt;05&gt;</span>
-                <h2 class="section-title">Edu<span class="text-gradient">cation</span></h2>
-                <div class="section-line"></div>
+                <span class="section-tag">05. ACADEMICS</span>
+                <h2 class="section-title">Education</h2>
             </div>
             <div class="education-grid">
                 <div class="edu-card reveal-up">
                     <div class="edu-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
                     </div>
-                    <span class="edu-level">Master's Degree</span>
-                    <h3>Master in Visual Effects</h3>
-                    <p>Advanced VFX techniques, compositing, and digital effects for film and real-time applications.</p>
-                </div>
-                <div class="edu-card reveal-up">
-                    <div class="edu-icon icon-magenta">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                    <div class="edu-content">
+                        <span class="edu-level">Master's Degree</span>
+                        <h3>Master in Visual Effects</h3>
+                        <p>Advanced VFX techniques, heavy compositing, and digital effects for both film and complex real-time applications.</p>
                     </div>
-                    <span class="edu-level">Master's Degree</span>
-                    <h3>Master in 3D Animation</h3>
-                    <p>Comprehensive 3D animation training covering character animation, rigging, and cinematic production.</p>
-                </div>
-                <div class="edu-card reveal-up">
-                    <div class="edu-icon icon-purple">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                    </div>
-                    <span class="edu-level">Higher Technician</span>
-                    <h3>3D Animation, Games & Interactive Environments</h3>
-                    <p>Professional training in game development, 3D art production, and interactive media creation.</p>
                 </div>
                 <div class="edu-card reveal-up">
                     <div class="edu-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     </div>
-                    <span class="edu-level">High School</span>
-                    <h3>Science and Technology</h3>
-                    <p>Foundation in science and technology disciplines, providing a strong analytical and technical base.</p>
+                    <div class="edu-content">
+                        <span class="edu-level">Master's Degree</span>
+                        <h3>Master in 3D Animation</h3>
+                        <p>Comprehensive 3D animation training covering character animation, technical rigging, and cinematic production.</p>
+                    </div>
+                </div>
+                <div class="edu-card reveal-up">
+                    <div class="edu-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <div class="edu-content">
+                        <span class="edu-level">Higher Technician</span>
+                        <h3>3D Animation, Games & Interactive Environments</h3>
+                        <p>Professional training in full-cycle game development, 3D art production, and immersive media creation.</p>
+                    </div>
+                </div>
+                <div class="edu-card reveal-up">
+                    <div class="edu-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <div class="edu-content">
+                        <span class="edu-level">High School</span>
+                        <h3>Science and Technology</h3>
+                        <p>Foundation in science, math, and technology disciplines, providing a strong analytical approach to problem-solving.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Languages subsection -->
             <div class="languages-wrapper reveal-up">
-                <h3 class="skills-subtitle" style="margin-top: 4rem;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <h3 class="languages-title">
                     Languages
                 </h3>
                 <div class="languages-grid">
                     <div class="language-card">
-                        <div class="language-flag">🇪🇸</div>
-                        <h4>Spanish</h4>
-                        <span class="language-level">Native</span>
-                        <div class="language-bar">
-                            <div class="language-bar-fill" style="width: 100%"></div>
+                        <div class="lang-header">
+                            <span class="language-flag">🇪🇸</span>
+                            <div>
+                                <h4>Spanish</h4>
+                                <span class="language-level">Native</span>
+                            </div>
                         </div>
                     </div>
                     <div class="language-card">
-                        <div class="language-flag">🇬🇧</div>
-                        <h4>English</h4>
-                        <span class="language-level">B2 — Cambridge</span>
-                        <div class="language-bar">
-                            <div class="language-bar-fill fill-magenta" style="width: 75%"></div>
+                        <div class="lang-header">
+                            <span class="language-flag">🇬🇧</span>
+                            <div>
+                                <h4>English</h4>
+                                <span class="language-level">B2 — Cambridge</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -544,36 +560,35 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag">&lt;06&gt;</span>
-                <h2 class="section-title">Con<span class="text-gradient">tact</span></h2>
-                <div class="section-line"></div>
-                <p class="section-subtitle">Have a project in mind? Let's create something extraordinary together.</p>
+                <span class="section-tag">06. CONNECT</span>
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Interested in collaborating or have a project in mind? Let's build something extraordinary.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info reveal-left">
                     <div class="contact-info-card">
                         <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-details">
                             <h4>Email</h4>
                             <a href="mailto:sergioxdc@gmail.com">sergioxdc@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-info-card">
-                        <div class="contact-icon icon-magenta">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-details">
                             <h4>Phone</h4>
                             <a href="tel:+34691868419">+34 691 86 84 19</a>
                         </div>
                     </div>
                     <div class="contact-info-card">
-                        <div class="contact-icon icon-purple">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
-                        <div>
+                        <div class="contact-details">
                             <h4>Location</h4>
                             <span>Valladolid, Spain</span>
                         </div>
@@ -581,37 +596,32 @@
 
                     <div class="social-links">
                         <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.08c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.41z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.08c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.41z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
                         </a>
                         <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
                         <a href="https://www.artstation.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ArtStation">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 17l2 4h12l-2-4H2z"/><path d="M15.2 3H7L16 21h3l-2-4L10.8 3h4.4z"/><path d="M22 17l-2-4"/></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17l2 4h12l-2-4H2z"/><path d="M15.2 3H7L16 21h3l-2-4L10.8 3h4.4z"/><path d="M22 17l-2-4"/></svg>
                         </a>
                     </div>
                 </div>
                 <form class="contact-form reveal-right" id="contactForm">
                     <div class="form-group">
                         <label for="contactName">Name</label>
-                        <input type="text" id="contactName" name="name" required placeholder="Your name" autocomplete="name">
-                        <div class="input-glow"></div>
+                        <input type="text" id="contactName" name="name" required placeholder="John Doe" autocomplete="name">
                     </div>
                     <div class="form-group">
                         <label for="contactEmail">Email</label>
-                        <input type="email" id="contactEmail" name="email" required placeholder="your.email@example.com" autocomplete="email">
-                        <div class="input-glow"></div>
+                        <input type="email" id="contactEmail" name="email" required placeholder="john@example.com" autocomplete="email">
                     </div>
                     <div class="form-group">
                         <label for="contactMessage">Message</label>
-                        <textarea id="contactMessage" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-                        <div class="input-glow"></div>
+                        <textarea id="contactMessage" name="message" rows="5" required placeholder="How can I help you?"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
                         <span class="btn-text">Send Message</span>
-                        <span class="btn-icon-arrow">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                        </span>
+                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
                 </form>
             </div>
@@ -623,10 +633,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span class="logo-bracket">&lt;</span>SLH<span class="logo-bracket">/&gt;</span>
+                    SLH.
                 </div>
                 <p class="footer-text">&copy; 2025 Sergio López Herrero. All rights reserved.</p>
-                <p class="footer-tagline">Crafted with passion for real-time experiences.</p>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Work</a>
+                    <a href="#experience">Experience</a>
+                </div>
             </div>
         </div>
     </footer>
