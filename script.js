@@ -45,11 +45,11 @@ function initParticles() {
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.4, // Faster movement
-                vy: (Math.random() - 0.5) * 0.4, // Faster movement
-                size: Math.random() * 2 + 0.5, // Slightly larger particles
+                vx: (Math.random() - 0.5) * 1.0, // Significant movement
+                vy: (Math.random() - 0.5) * 1.0, // Significant movement
+                size: Math.random() * 6 + 3, // Clearly visible particles
                 color: color,
-                alpha: Math.random() * 0.5 + 0.2, // More visible opacity
+                alpha: Math.random() * 0.4 + 0.5, // High opacity for visibility
                 pulseSpeed: Math.random() * 0.02 + 0.005,
                 pulseOffset: Math.random() * Math.PI * 2,
             });
