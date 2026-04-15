@@ -45,11 +45,11 @@ function initParticles() {
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 1.0, // Significant movement
-                vy: (Math.random() - 0.5) * 1.0, // Significant movement
-                size: Math.random() * 6 + 3, // Clearly visible particles
+                vx: (Math.random() - 0.5) * 0.8, // Elegant, smooth speed
+                vy: (Math.random() - 0.5) * 0.8,
+                size: Math.random() * 2.5 + 1.2, // Small, sharp particles
                 color: color,
-                alpha: Math.random() * 0.4 + 0.5, // High opacity for visibility
+                alpha: Math.random() * 0.3 + 0.4, // Balanced opacity
                 pulseSpeed: Math.random() * 0.02 + 0.005,
                 pulseOffset: Math.random() * Math.PI * 2,
             });
@@ -76,13 +76,13 @@ function initParticles() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < maxDist) {
-                    const alpha = (1 - dist / maxDist) * 0.18; // More visible lines
+                    const alpha = (1 - dist / maxDist) * 0.12; // Subtle tech lines
                     const p = particles[i];
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.strokeStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha})`;
-                    ctx.lineWidth = 0.5;
+                    ctx.lineWidth = 0.4;
                     ctx.stroke();
                 }
             }
@@ -99,8 +99,9 @@ function initParticles() {
                 if (dist < mouse.radius) {
                     const force = (mouse.radius - dist) / mouse.radius;
                     const angle = Math.atan2(dy, dx);
-                    p.vx += Math.cos(angle) * force * 0.1;
-                    p.vy += Math.sin(angle) * force * 0.1;
+                    // Smoother, consistent repulsion
+                    p.vx += Math.cos(angle) * force * 0.4;
+                    p.vy += Math.sin(angle) * force * 0.4;
                 }
             }
 
