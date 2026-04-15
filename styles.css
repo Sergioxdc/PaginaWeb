@@ -5,11 +5,11 @@
 
 :root {
     /* Backgrounds: Cheerful tech blue-tinted palette */
-    --bg-primary: #0b1121;
-    --bg-secondary: #0f172a;
-    --bg-tertiary: #1e293b;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    --bg-primary: #071329;
+    --bg-secondary: #0d1e3d;
+    --bg-tertiary: #172d54;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --bg-card-hover: rgba(255, 255, 255, 0.09);
 
     /* Elegant Tech Accents */
     --accent-blue: #3b82f6;      /* Modern Blue */
@@ -243,7 +243,7 @@ strong {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 50%), var(--bg-primary);
+    background: radial-gradient(circle at 50% 30%, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.1) 25%, transparent 60%), var(--bg-primary);
     border-bottom: 1px solid var(--border-color);
 }
 
