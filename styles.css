@@ -4,12 +4,12 @@
    ============================================================ */
 
 :root {
-    /* Backgrounds: Clean very dark palette */
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #0f1115;
-    --bg-tertiary: #16181d;
-    --bg-card: rgba(255, 255, 255, 0.02);
-    --bg-card-hover: rgba(255, 255, 255, 0.04);
+    /* Backgrounds: Cheerful tech blue-tinted palette */
+    --bg-primary: #0b1121;
+    --bg-secondary: #0f172a;
+    --bg-tertiary: #1e293b;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.06);
 
     /* Elegant Tech Accents */
     --accent-blue: #3b82f6;      /* Modern Blue */

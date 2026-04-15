@@ -38,19 +38,19 @@ function initParticles() {
 
     function createParticles() {
         particles = [];
-        // Fewer particles for a cleaner look
-        const count = Math.min(Math.floor((width * height) / 15000), 80);
+        // More particles for a livelier background
+        const count = Math.min(Math.floor((width * height) / 10000), 120);
         for (let i = 0; i < count; i++) {
             const color = COLORS[Math.floor(Math.random() * COLORS.length)];
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.2, // Slower movement
-                vy: (Math.random() - 0.5) * 0.2, // Slower movement
-                size: Math.random() * 1.5 + 0.5, // Smaller particles
+                vx: (Math.random() - 0.5) * 0.4, // Faster movement
+                vy: (Math.random() - 0.5) * 0.4, // Faster movement
+                size: Math.random() * 2 + 0.5, // Slightly larger particles
                 color: color,
-                alpha: Math.random() * 0.3 + 0.1, // Subtle opacity
-                pulseSpeed: Math.random() * 0.01 + 0.005,
+                alpha: Math.random() * 0.5 + 0.2, // More visible opacity
+                pulseSpeed: Math.random() * 0.02 + 0.005,
                 pulseOffset: Math.random() * Math.PI * 2,
             });
         }
@@ -68,7 +68,7 @@ function initParticles() {
     }
 
     function drawConnections() {
-        const maxDist = 120; // Shorter distance for cleaner lines
+        const maxDist = 150; // Longer distance for more connections
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
@@ -76,7 +76,7 @@ function initParticles() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < maxDist) {
-                    const alpha = (1 - dist / maxDist) * 0.08; // Very subtle lines
+                    const alpha = (1 - dist / maxDist) * 0.18; // More visible lines
                     const p = particles[i];
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
