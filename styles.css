@@ -211,6 +211,32 @@ strong {
     color: var(--text-primary);
 }
 
+.lang-toggle-btn {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+}
+.lang-toggle-btn:hover {
+    border-color: var(--accent-blue);
+    background: var(--accent-blue-dim);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+
 /* Hamburger */
 .nav-toggle {
     display: none;

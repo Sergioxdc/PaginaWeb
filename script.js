@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPortfolioFilters();
     initContactForm();
     initSmoothScroll();
+    initLanguageSwitcher();
 });
 
 /* ==================== PARTICLE SYSTEM ==================== */
@@ -373,4 +374,164 @@ function initSmoothScroll() {
             }
         });
     });
+}
+
+/* ==================== LANGUAGE SWITCHER ==================== */
+const enTranslations = {
+    "nav_about": "About",
+    "nav_portfolio": "Portfolio",
+    "nav_skills": "Skills",
+    "nav_experience": "Experience",
+    "nav_education": "Education",
+    "nav_contact": "Contact",
+    "hero_badge": "Available for projects",
+    "hero_title_1": "3D Designer",
+    "hero_title_2": "VFX Artist",
+    "hero_title_3": "UE5 Developer",
+    "hero_tagline": "Creating immersive real-time experiences.",
+    "hero_btn_portfolio": "View Portfolio",
+    "hero_btn_contact": "Contact Me",
+    "hero_scroll": "Scroll to explore",
+    "about_tag": "01. PROFILE",
+    "about_title": "About Me",
+    "about_intro": "I am a <strong>3D Designer and VFX Artist</strong> specialized in real-time applications and immersive experiences using <strong>Unreal Engine 5</strong>.",
+    "about_p1": "With strong experience in 3D modeling, visual effects, and interactive environments, I focus on creating high-quality visual and interactive content that pushes the boundaries of real-time rendering. By bridging the gap between creative vision and technical execution, I deliver modern experiences that captivate and inspire.",
+    "about_p2": "Currently working as a <strong>Programmer and 3D Modeler</strong> with Unreal Engine 5, I am always exploring new ways to enhance interactive storytelling through advanced environments and logic.",
+    "about_location": "Valladolid, Spain",
+    "about_card_ue5": "Real-time rendering, blueprints, interactive environments & VR experiences",
+    "about_card_3d_title": "3D Modeling",
+    "about_card_3d": "High-poly & game-ready models with Maya, 3ds Max, ZBrush & Mudbox",
+    "about_card_vfx_title": "Visual Effects",
+    "about_card_vfx": "Particle systems, simulations & compositing with Houdini & After Effects",
+    "portfolio_tag": "02. WORK",
+    "portfolio_title": "Portfolio",
+    "filter_all": "All",
+    "filter_unreal": "Unreal Engine / VR",
+    "filter_3d": "3D Modeling",
+    "filter_vfx": "VFX",
+    "reel_badge": "Demo Reel",
+    "reel_3d_title": "3D Demo Reel",
+    "reel_3d_desc": "A showcase of 3D modeling, texturing, and rendering projects created with industry-standard tools for professional pipelines.",
+    "reel_badge2": "Demo Reel",
+    "reel_vfx_title": "VFX Demo Reel",
+    "reel_vfx_desc": "Visual effects work including particle systems, complex simulations, compositing, and performance-optimized real-time VFX.",
+    "skills_tag": "03. CAPABILITIES",
+    "skills_title": "Skills & Tools",
+    "skills_software": "Software Arsenal",
+    "skills_pro": "Core Competencies",
+    "skill_pro_1": "Teamwork",
+    "skill_pro_1_desc": "Collaborative mindset with cross-functional teams in agile environments.",
+    "skill_pro_2": "Leadership",
+    "skill_pro_2_desc": "Guiding technical and creative projects from concept to final delivery.",
+    "skill_pro_3": "Responsibility",
+    "skill_pro_3_desc": "Reliable execution with deep attention to detail and optimization.",
+    "skill_pro_4": "Communication",
+    "skill_pro_4_desc": "Clear articulation of complex technical concepts to non-technical peers.",
+    "experience_tag": "04. TIMELINE",
+    "experience_title": "Experience",
+    "exp_date_1": "Nov 2023 — Present",
+    "exp_title_1": "Programmer / 3D Modeler",
+    "exp_desc_1": "Developing interactive experiences, 3D models, and real-time visualizations using Unreal Engine 5. Responsible for programming gameplay logic, optimizing high-fidelity 3D assets, and integrating modern visual effects into production pipelines.",
+    "exp_date_2": "Apr 2018 — Jun 2019",
+    "exp_title_2": "3D Modeler Intern",
+    "exp_company_2": "Science Museum of Valladolid",
+    "exp_desc_2": "Created 3D models and conceptual visualizations for educational exhibits and museum displays. Collaborated closely with the curation team to transform scientific concepts into engaging, interactive digital content.",
+    "edu_tag": "05. ACADEMICS",
+    "edu_title": "Education",
+    "edu_level_1": "Master's Degree",
+    "edu_title_1": "Master in Visual Effects",
+    "edu_desc_1": "Advanced VFX techniques, heavy compositing, and digital effects for both film and complex real-time applications.",
+    "edu_level_2": "Master's Degree",
+    "edu_title_2": "Master in 3D Animation",
+    "edu_desc_2": "Comprehensive 3D animation training covering character animation, technical rigging, and cinematic production.",
+    "edu_level_3": "Higher Technician",
+    "edu_title_3": "3D Animation, Games & Interactive Environments",
+    "edu_desc_3": "Professional training in full-cycle game development, 3D art production, and immersive media creation.",
+    "edu_level_4": "High School",
+    "edu_title_4": "Science and Technology",
+    "edu_desc_4": "Foundation in science, math, and technology disciplines, providing a strong analytical approach to problem-solving.",
+    "lang_title": "Languages",
+    "lang_es": "Spanish",
+    "lang_es_lvl": "Native",
+    "lang_en": "English",
+    "lang_en_lvl": "B2 — Cambridge",
+    "contact_tag": "06. CONNECT",
+    "contact_title": "Get in Touch",
+    "contact_sub": "Interested in collaborating or have a project in mind? Let's build something extraordinary.",
+    "contact_email": "Email",
+    "contact_phone": "Phone",
+    "contact_location": "Location",
+    "contact_loc_value": "Valladolid, Spain",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_submit": "Send Message",
+    "footer_copy": "&copy; 2025 Sergio López Herrero. All rights reserved.",
+    "footer_about": "About",
+    "footer_work": "Work",
+    "footer_exp": "Experience",
+    "proj_activa_title": "ACTIVA",
+    "proj_activa_desc": "Development of a virtual reality application for senior residences, focused on cognitive stimulation and fine/gross motor exercises. Participated in full development using Unreal Engine 5, including environment design, 3D UI development, and interactive logic programming via Blueprints.",
+    "proj_gestaverso_title": "GESTAVERSO",
+    "proj_gestaverso_desc": "Development of an immersive experience for pregnant women, designed for support and interactive activities. Creation of 3D environments and interactive logic using Blueprints in Unreal Engine 5.",
+    "proj_unileon_title": "CUENTOS UNILEON",
+    "proj_unileon_desc": "Development of an interactive storytelling experience in a virtual environment. Creation of 3D scenarios and programming of events and interactions using Blueprints in Unreal Engine 5.",
+    "proj_emasesa_title": "EMASESA DEMO",
+    "proj_emasesa_desc": "Digitalization of a WWTP (Wastewater Treatment Plant) through the creation of an interactive 3D environment. Work focused on scenario recreation and visual representation of the environment.",
+    "proj_industria_title": "INDUSTRIA DEMO",
+    "proj_industria_desc": "Development of an interactive experience oriented towards learning in industrial environments. Creation of scenarios and interactive logic development with Blueprints in Unreal Engine 5, focused on training.",
+    "proj_carnica_title": "CÁRNICA (XR2Learn)",
+    "proj_carnica_desc": "Development of a training application focused on the meat sector within an immersive environment. Creation of 3D scenarios and interaction development using Blueprints in Unreal Engine 5.",
+    "proj_ajedrez_title": "CHESS WITH HEAD",
+    "proj_ajedrez_desc": "Development of an application for teaching chess in a digital environment. Integration and adaptation of a specialized plugin within the application to improve its functionality in the environment.",
+    "proj_iberdrola_title": "IBERDROLA",
+    "proj_iberdrola_desc": "Development of an immersive experience in a 360º environment for station visualization. Content creation oriented towards exploration and interactive visualization.",
+    "proj_cajero_title": "ATM SIMULATOR",
+    "proj_cajero_desc": "Development of an interactive experience for training in the use of ATMs. Creation of scenarios and interaction logic development via Blueprints in Unreal Engine 5.",
+    "proj_view": "View Project"
+};
+
+let currentLang = localStorage.getItem('site_lang') || 'es';
+let esTranslations = {};
+
+function initLanguageSwitcher() {
+    const langToggle = document.getElementById('langToggle');
+    if (!langToggle) return;
+
+    // Save initial Spanish translations from the DOM
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        esTranslations[el.getAttribute('data-i18n')] = el.innerHTML;
+    });
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('site_lang', lang);
+        langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
+        
+        const dict = lang === 'es' ? esTranslations : enTranslations;
+        
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (dict[key]) {
+                el.innerHTML = dict[key];
+            }
+        });
+        
+        // Update placeholders
+        const nameInput = document.getElementById('contactName');
+        const emailInput = document.getElementById('contactEmail');
+        const msgInput = document.getElementById('contactMessage');
+        if (nameInput) nameInput.placeholder = lang === 'es' ? 'Tu Nombre' : 'John Doe';
+        if (emailInput) emailInput.placeholder = lang === 'es' ? 'tu@correo.com' : 'john@example.com';
+        if (msgInput) msgInput.placeholder = lang === 'es' ? '¿En qué te puedo ayudar?' : 'How can I help you?';
+    }
+
+    langToggle.addEventListener('click', () => {
+        setLanguage(currentLang === 'es' ? 'en' : 'es');
+    });
+
+    // Apply initial language if not Spanish
+    if (currentLang === 'en') {
+        setLanguage('en');
+    }
 }
