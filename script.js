@@ -488,7 +488,8 @@ const enTranslations = {
     "proj_iberdrola_desc": "Development of an immersive experience in a 360º environment for station visualization. Content creation oriented towards exploration and interactive visualization.",
     "proj_cajero_title": "ATM SIMULATOR",
     "proj_cajero_desc": "Development of an interactive experience for training in the use of ATMs. Creation of scenarios and interaction logic development via Blueprints in Unreal Engine 5.",
-    "proj_view": "View Project"
+    "proj_view": "View Project",
+    "proj_details": "Explore Details"
 };
 
 let currentLang = localStorage.getItem('site_lang') || 'es';
@@ -535,3 +536,70 @@ function initLanguageSwitcher() {
         setLanguage('en');
     }
 }
+
+/* ==================== PROJECT MODAL LOGIC ==================== */
+function openProjectModal(projectId) {
+    const modal = document.getElementById('projectModal');
+    const body = document.getElementById('modalBody');
+    if (!modal || !body) return;
+
+    let content = '';
+    
+    if (projectId === 'activa') {
+        const isEn = currentLang === 'en';
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">${isEn ? 'ACTIVA - Immersive Experience' : 'ACTIVA - Experiencia Inmersiva'}</h2>
+                <p class="section-subtitle">${isEn ? 'A detailed look at the environments and interactions developed.' : 'Un vistazo detallado a los entornos e interacciones desarrollados.'}</p>
+            </div>
+            
+            <div class="modal-video-main">
+                <h3 class="modal-sub-title">${isEn ? 'Corporate Presentation' : 'Presentación Corporativa'}</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/f2AFb51xiaI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="modal-grid">
+                <div class="modal-section">
+                    <h3 class="modal-sub-title">${isEn ? 'The Corral (Corral)' : 'El Corral'}</h3>
+                    <p class="modal-section-desc">${isEn ? 'Focus on cognitive stimulation in outdoor environments.' : 'Enfoque en estimulación cognitiva en entornos exteriores.'}</p>
+                    <div class="video-sub-grid">
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/R3ycOiE2ACY" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/1kkbzZIGzn4" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/_0u_uUOL4YM" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3 class="modal-sub-title">${isEn ? 'The House (Casa)' : 'La Casa'}</h3>
+                    <p class="modal-section-desc">${isEn ? 'Daily living activities and fine motor exercises.' : 'Actividades de la vida diaria y ejercicios de motricidad fina.'}</p>
+                    <div class="video-sub-grid">
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/KT-AzZz5kAs" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/XIJSSghIIic" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/Fm6THmivHOU" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    body.innerHTML = content;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Stop scroll
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.getElementById('modalBody').innerHTML = '';
+        document.body.style.overflow = ''; // Restore scroll
+    }
+}
+
+// Close modal on outside click
+window.addEventListener('click', (e) => {
+    const modal = document.getElementById('projectModal');
+    if (e.target === modal) closeProjectModal();
+});
