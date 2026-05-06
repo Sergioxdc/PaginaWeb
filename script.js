@@ -605,7 +605,7 @@ function openProjectModal(projectId) {
             <div class="modal-video-main">
                 <h3 class="modal-sub-title">${isEn ? 'Project Showcase' : 'Muestra del Proyecto'}</h3>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/5mpunhSCAS0" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/jbF_Am0VOHg" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
