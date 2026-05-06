@@ -569,6 +569,12 @@ function openProjectModal(projectId) {
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/1kkbzZIGzn4" frameborder="0" allowfullscreen></iframe></div>
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/_0u_uUOL4YM" frameborder="0" allowfullscreen></iframe></div>
                     </div>
+                    <div class="photo-sub-grid">
+                        <img src="Media/Activa/Foto/Fotos Corral/Corral_02.jpg" alt="Corral Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Corral/Alpacas_01.jpg" alt="Alpacas Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Corral/Cesta_03.jpg" alt="Cesta Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Corral/Flores_01.jpg" alt="Flores Detail" class="modal-img">
+                    </div>
                 </div>
 
                 <div class="modal-section">
@@ -578,6 +584,12 @@ function openProjectModal(projectId) {
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/KT-AzZz5kAs" frameborder="0" allowfullscreen></iframe></div>
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/XIJSSghIIic" frameborder="0" allowfullscreen></iframe></div>
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/Fm6THmivHOU" frameborder="0" allowfullscreen></iframe></div>
+                    </div>
+                    <div class="photo-sub-grid">
+                        <img src="Media/Activa/Foto/Fotos Casa/Casa_F03.jpg" alt="Casa Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Casa/Libro_F01.jpg" alt="Libro Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Casa/Sopa_F03.jpg" alt="Sopa Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Casa/Vajilla_F01.jpg" alt="Vajilla Detail" class="modal-img">
                     </div>
                 </div>
             </div>
