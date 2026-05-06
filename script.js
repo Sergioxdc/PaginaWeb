@@ -628,6 +628,26 @@ function openProjectModal(projectId) {
                 </div>
             </div>
         `;
+    } else if (projectId === 'industria') {
+        const isEn = currentLang === 'en';
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">${isEn ? 'INDUSTRIA DEMO - Training Simulation' : 'INDUSTRIA DEMO - Simulación de Formación'}</h2>
+                <p class="section-subtitle">${isEn ? 'High-fidelity industrial environments for professional training.' : 'Entornos industriales de alta fidelidad para formación profesional.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'Industrial Scenarios' : 'Escenarios Industriales'}</h3>
+                <div class="photo-sub-grid">
+                    <img src="Media/Industria_Demo/HighresScreenshot00002.png" alt="Industria 1" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00003.png" alt="Industria 2" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00005.png" alt="Industria 3" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00006.png" alt="Industria 4" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00007.png" alt="Industria 5" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00008.png" alt="Industria 6" class="modal-img" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        `;
     } else if (projectId === 'odontologia') {
         const isEn = currentLang === 'en';
         content = `
@@ -643,11 +663,11 @@ function openProjectModal(projectId) {
                         'Development of dental burs and instruments with high technical accuracy. Focused on topology and realistic texturing for medical training simulators.' : 
                         'Desarrollo de fresas e instrumental dental con alta precisión técnica. Enfocado en la topología y el texturizado realista para simuladores de formación médica.'}
                 </p>
-                <div id="odontologiaGallery" class="photo-sub-grid">
-                    <!-- Images will be added here -->
-                    <p style="color: var(--text-secondary); grid-column: 1/-1; text-align: center; padding: 2rem;">
-                        ${isEn ? 'Images coming soon...' : 'Imágenes próximamente...'}
-                    </p>
+                <div class="photo-sub-grid">
+                    <img src="Media/Odontologia/Fotos/A.jpeg" alt="Odontologia A" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Odontologia/Fotos/B.jpeg" alt="Odontologia B" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Odontologia/Fotos/I.jpeg" alt="Odontologia I" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Odontologia/Fotos/J.jpeg" alt="Odontologia J" class="modal-img" onclick="openLightbox(this.src)">
                 </div>
             </div>
         `;
