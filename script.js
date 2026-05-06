@@ -582,6 +582,30 @@ function openProjectModal(projectId) {
                 </div>
             </div>
         `;
+    } else if (projectId === 'unileon') {
+        const isEn = currentLang === 'en';
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">${isEn ? 'CUENTOS UNILEON - Narrative Experience' : 'CUENTOS UNILEON - Experiencia Narrativa'}</h2>
+                <p class="section-subtitle">${isEn ? 'An interactive storytelling project developed in Unreal Engine 5.' : 'Un proyecto de narrativa interactiva desarrollado en Unreal Engine 5.'}</p>
+            </div>
+            
+            <div class="modal-video-main">
+                <h3 class="modal-sub-title">${isEn ? 'Project Showcase' : 'Muestra del Proyecto'}</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/5mpunhSCAS0" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'Project Details' : 'Detalles del Proyecto'}</h3>
+                <p class="modal-section-desc">
+                    ${isEn ? 
+                        'Interactive storytelling experience set in a virtual environment. The focus was on creating a compelling atmosphere and smooth interactions using Blueprints.' : 
+                        'Experiencia de narrativa interactiva ambientada en un entorno virtual. El enfoque estuvo en crear una atmósfera envolvente e interacciones fluidas mediante Blueprints.'}
+                </p>
+            </div>
+        `;
     }
 
     body.innerHTML = content;
