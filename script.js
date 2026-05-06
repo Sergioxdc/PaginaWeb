@@ -488,6 +488,8 @@ const enTranslations = {
     "proj_iberdrola_desc": "Development of an immersive experience in a 360º environment for station visualization. Content creation oriented towards exploration and interactive visualization.",
     "proj_cajero_title": "ATM SIMULATOR",
     "proj_cajero_desc": "Development of an interactive experience for training in the use of ATMs. Creation of scenarios and interaction logic development via Blueprints in Unreal Engine 5.",
+    "proj_odontologia_title": "DENTISTRY DEMO",
+    "proj_odontologia_desc": "3D modeling of specialized dental instruments (burs) for medical simulations. Work focused on technical detail and model precision for professional pipelines.",
     "proj_view": "View Project",
     "proj_details": "Explore Details"
 };
@@ -616,6 +618,37 @@ function openProjectModal(projectId) {
                         'Interactive storytelling experience set in a virtual environment. The focus was on creating a compelling atmosphere and smooth interactions using Blueprints.' : 
                         'Experiencia de narrativa interactiva ambientada en un entorno virtual. El enfoque estuvo en crear una atmósfera envolvente e interacciones fluidas mediante Blueprints.'}
                 </p>
+                <div class="photo-sub-grid">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0002.png" alt="Unileon Detail 1" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0012.png" alt="Unileon Detail 2" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0067.png" alt="Unileon Detail 3" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0088.png" alt="Unileon Detail 4" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0128.png" alt="Unileon Detail 5" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0257.png" alt="Unileon Detail 6" class="modal-img" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        `;
+    } else if (projectId === 'odontologia') {
+        const isEn = currentLang === 'en';
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">${isEn ? 'DENTISTRY DEMO - 3D Modeling' : 'ODONTOLOGÍA DEMO - Modelado 3D'}</h2>
+                <p class="section-subtitle">${isEn ? 'High-precision technical modeling of dental instruments.' : 'Modelado técnico de alta precisión de instrumental dental.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? '3D Assets & Detail' : 'Assets 3D y Detalle'}</h3>
+                <p class="modal-section-desc">
+                    ${isEn ? 
+                        'Development of dental burs and instruments with high technical accuracy. Focused on topology and realistic texturing for medical training simulators.' : 
+                        'Desarrollo de fresas e instrumental dental con alta precisión técnica. Enfocado en la topología y el texturizado realista para simuladores de formación médica.'}
+                </p>
+                <div id="odontologiaGallery" class="photo-sub-grid">
+                    <!-- Images will be added here -->
+                    <p style="color: var(--text-secondary); grid-column: 1/-1; text-align: center; padding: 2rem;">
+                        ${isEn ? 'Images coming soon...' : 'Imágenes próximamente...'}
+                    </p>
+                </div>
             </div>
         `;
     }
