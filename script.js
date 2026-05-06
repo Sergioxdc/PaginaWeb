@@ -628,6 +628,25 @@ function openProjectModal(projectId) {
                 </div>
             </div>
         `;
+    } else if (projectId === 'gestaverso') {
+        const isEn = currentLang === 'en';
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">${isEn ? 'GESTA VERSO - Immersive Experience' : 'GESTA VERSO - Experiencia Inmersiva'}</h2>
+                <p class="section-subtitle">${isEn ? 'Interactive storytelling for pregnancy support.' : 'Narrativa interactiva para acompañamiento durante el embarazo.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'Environment & Exploration' : 'Entorno y Exploración'}</h3>
+                <div class="photo-sub-grid">
+                    <img src="Media/Gestaverso/HighresScreenshot00003.png" alt="Gestaverso 1" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Gestaverso/HighresScreenshot00004.png" alt="Gestaverso 2" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Gestaverso/HighresScreenshot00005.png" alt="Gestaverso 3" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Gestaverso/HighresScreenshot00006.png" alt="Gestaverso 4" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Gestaverso/HighresScreenshot00007.png" alt="Gestaverso 5" class="modal-img" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        `;
     } else if (projectId === 'industria') {
         const isEn = currentLang === 'en';
         content = `
