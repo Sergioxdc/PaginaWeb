@@ -570,10 +570,10 @@ function openProjectModal(projectId) {
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/_0u_uUOL4YM" frameborder="0" allowfullscreen></iframe></div>
                     </div>
                     <div class="photo-sub-grid">
-                        <img src="Media/Activa/Foto/Fotos Corral/Corral_02.jpg" alt="Corral Detail" class="modal-img">
-                        <img src="Media/Activa/Foto/Fotos Corral/Alpacas_01.jpg" alt="Alpacas Detail" class="modal-img">
-                        <img src="Media/Activa/Foto/Fotos Corral/Cesta_03.jpg" alt="Cesta Detail" class="modal-img">
-                        <img src="Media/Activa/Foto/Fotos Corral/Flores_01.jpg" alt="Flores Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Corral/Corral_02.jpg" alt="Corral Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Corral/Alpacas_01.jpg" alt="Alpacas Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Corral/Cesta_03.jpg" alt="Cesta Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Corral/Flores_01.jpg" alt="Flores Detail" class="modal-img" onclick="openLightbox(this.src)">
                     </div>
                 </div>
 
@@ -586,10 +586,10 @@ function openProjectModal(projectId) {
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/Fm6THmivHOU" frameborder="0" allowfullscreen></iframe></div>
                     </div>
                     <div class="photo-sub-grid">
-                        <img src="Media/Activa/Foto/Fotos Casa/Casa_F03.jpg" alt="Casa Detail" class="modal-img">
-                        <img src="Media/Activa/Foto/Fotos Casa/Libro_F01.jpg" alt="Libro Detail" class="modal-img">
-                        <img src="Media/Activa/Foto/Fotos Casa/Sopa_F03.jpg" alt="Sopa Detail" class="modal-img">
-                        <img src="Media/Activa/Foto/Fotos Casa/Vajilla_F01.jpg" alt="Vajilla Detail" class="modal-img">
+                        <img src="Media/Activa/Foto/Fotos Casa/Casa_F03.jpg" alt="Casa Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Libro_F01.jpg" alt="Libro Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Sopa_F03.jpg" alt="Sopa Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Vajilla_F01.jpg" alt="Vajilla Detail" class="modal-img" onclick="openLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -631,6 +631,24 @@ function closeProjectModal() {
         modal.classList.remove('active');
         document.getElementById('modalBody').innerHTML = '';
         document.body.style.overflow = ''; // Restore scroll
+    }
+}
+
+/* ==================== LIGHTBOX LOGIC ==================== */
+function openLightbox(src) {
+    const lightbox = document.getElementById('imageLightbox');
+    const img = document.getElementById('lightboxImg');
+    if (lightbox && img) {
+        img.src = src;
+        lightbox.classList.add('active');
+        // If we are inside a modal, don't restore body overflow yet
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('imageLightbox');
+    if (lightbox) {
+        lightbox.classList.remove('active');
     }
 }
 
