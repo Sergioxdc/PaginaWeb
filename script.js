@@ -476,8 +476,7 @@ const enTranslations = {
     "proj_gestaverso_desc": "Development of an immersive experience for pregnant women, designed for support and interactive activities. Creation of 3D environments and interactive logic using Blueprints in Unreal Engine 5.",
     "proj_unileon_title": "CUENTOS UNILEON",
     "proj_unileon_desc": "Development of an interactive storytelling experience in a virtual environment. Creation of 3D scenarios and programming of events and interactions using Blueprints in Unreal Engine 5.",
-    "proj_emasesa_title": "EMASESA DEMO",
-    "proj_emasesa_desc": "Digitalization of a WWTP (Wastewater Treatment Plant) through the creation of an interactive 3D environment. Work focused on scenario recreation and visual representation of the environment.",
+
     "proj_industria_title": "INDUSTRIA DEMO",
     "proj_industria_desc": "Development of an interactive experience oriented towards learning in industrial environments. Creation of scenarios and interactive logic development with Blueprints in Unreal Engine 5, focused on training.",
     "proj_carnica_title": "CÁRNICA (XR2Learn)",
