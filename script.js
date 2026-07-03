@@ -13,30 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initHeroRoleCycler();
     initHeroVideoBackground();
-    initFeaturedCarousel();
 });
-
-/* ==================== FEATURED VIDEO CAROUSEL ==================== */
-function initFeaturedCarousel() {
-    const tabs = document.querySelectorAll('.feat-carousel-tab');
-    const player = document.getElementById('featuredVideoPlayer');
-    if (!tabs.length || !player) return;
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const videoId = tab.getAttribute('data-video-id');
-            // Update active class
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            // Swap YouTube iframe source with autoplay enabled, muted, and looping
-            player.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=${videoId}`;
-        });
-    });
-}
 
 /* ==================== HERO YOUTUBE BACKGROUND ==================== */
 let ytBackgroundPlayer;
+const HERO_VIDEOS = ['R3ycOiE2ACY', '1kkbzZIGzn4', 'KT-AzZz5kAs', 'XIJSSghIIic'];
+let currentHeroVideoIndex = 0;
 
 function initHeroVideoBackground() {
     if (!document.getElementById('hero-yt-player')) return;
@@ -54,13 +36,12 @@ window.onYouTubeIframeAPIReady = function() {
     if (!playerEl) return;
 
     ytBackgroundPlayer = new YT.Player('hero-yt-player', {
-        videoId: 'f2AFb51xiaI',
+        videoId: HERO_VIDEOS[0],
         playerVars: {
             'autoplay': 1,
             'controls': 0,
             'mute': 1,
-            'loop': 1,
-            'playlist': 'f2AFb51xiaI', // Required for looping
+            'loop': 0, // Set loop to 0 since we cycle array manually
             'rel': 0,
             'showinfo': 0,
             'modestbranding': 1,
@@ -81,9 +62,13 @@ window.onYouTubeIframeAPIReady = function() {
                 }
             },
             'onStateChange': (event) => {
-                // Keep the loop stable across all browsers
+                // When current video ends, load the next one in the carousel
                 if (event.data === YT.PlayerState.ENDED) {
-                    ytBackgroundPlayer.playVideo();
+                    currentHeroVideoIndex = (currentHeroVideoIndex + 1) % HERO_VIDEOS.length;
+                    ytBackgroundPlayer.loadVideoById({
+                        videoId: HERO_VIDEOS[currentHeroVideoIndex],
+                        startSeconds: 0
+                    });
                 }
             }
         }
