@@ -29,8 +29,8 @@ function initFeaturedCarousel() {
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
             
-            // Swap YouTube iframe source with autoplay enabled
-            player.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1`;
+            // Swap YouTube iframe source with autoplay enabled, muted, and looping
+            player.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=${videoId}`;
         });
     });
 }
@@ -340,7 +340,7 @@ function initDemoReelTabs() {
             tab.classList.add('active');
 
             const videoId = tab.getAttribute('data-video-id');
-            player.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
+            player.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=${videoId}`;
 
             // Update tab descriptions
             if (videoId === '7GYlLNVob9Q') {
