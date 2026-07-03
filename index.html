@@ -52,7 +52,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=20">
+    <link rel="stylesheet" href="styles.css?v=21">
 </head>
 <body>
     <!-- ============ NAVBAR ============ -->
@@ -169,17 +169,32 @@
                 <div class="featured-media reveal-left">
                     <div class="video-wrapper">
                         <iframe 
-                            src="https://www.youtube.com/embed/f2AFb51xiaI" 
+                            id="featuredVideoPlayer"
+                            src="https://www.youtube.com/embed/R3ycOiE2ACY?enablejsapi=1" 
                             title="ACTIVA VR Muestra del Proyecto"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                             allowfullscreen>
                         </iframe>
                     </div>
-                    <div class="featured-media-thumbnails">
-                        <img src="Media/Activa/Foto/Fotos Corral/Corral_02.jpg" alt="ACTIVA Entorno del Corral" class="feat-thumb" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Casa/Casa_F03.jpg" alt="ACTIVA Entorno de Interior" class="feat-thumb" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Casa/Libro_F01.jpg" alt="ACTIVA Elementos Interactivos" class="feat-thumb" onclick="openLightbox(this.src)">
+                    <!-- Carousel selector tabs -->
+                    <div class="featured-carousel-tabs">
+                        <button class="feat-carousel-tab active" data-video-id="R3ycOiE2ACY">
+                            <span class="tab-num">01</span>
+                            <span class="tab-label">Nubes 03</span>
+                        </button>
+                        <button class="feat-carousel-tab" data-video-id="1kkbzZIGzn4">
+                            <span class="tab-num">02</span>
+                            <span class="tab-label">Flores 02</span>
+                        </button>
+                        <button class="feat-carousel-tab" data-video-id="KT-AzZz5kAs">
+                            <span class="tab-num">03</span>
+                            <span class="tab-label">Meditación 03</span>
+                        </button>
+                        <button class="feat-carousel-tab" data-video-id="XIJSSghIIic">
+                            <span class="tab-num">04</span>
+                            <span class="tab-label">Libro 01</span>
+                        </button>
                     </div>
                 </div>
                 
@@ -836,6 +851,6 @@
         <img id="lightboxImg" src="" alt="Vista Ampliada">
     </div>
 
-    <script src="script.js?v=20"></script>
+    <script src="script.js?v=21"></script>
 </body>
 </html>

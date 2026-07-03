@@ -13,7 +13,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initHeroRoleCycler();
     initHeroVideoBackground();
+    initFeaturedCarousel();
 });
+
+/* ==================== FEATURED VIDEO CAROUSEL ==================== */
+function initFeaturedCarousel() {
+    const tabs = document.querySelectorAll('.feat-carousel-tab');
+    const player = document.getElementById('featuredVideoPlayer');
+    if (!tabs.length || !player) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const videoId = tab.getAttribute('data-video-id');
+            // Update active class
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Swap YouTube iframe source with autoplay enabled
+            player.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1`;
+        });
+    });
+}
 
 /* ==================== HERO YOUTUBE BACKGROUND ==================== */
 let ytBackgroundPlayer;
