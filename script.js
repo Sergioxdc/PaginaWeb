@@ -12,7 +12,63 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initLanguageSwitcher();
     initHeroRoleCycler();
+    initHeroVideoBackground();
 });
+
+/* ==================== HERO YOUTUBE BACKGROUND ==================== */
+let ytBackgroundPlayer;
+
+function initHeroVideoBackground() {
+    if (!document.getElementById('hero-yt-player')) return;
+
+    // Load the IFrame Player API code asynchronously.
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+// Globally-accessible callback for YouTube API
+window.onYouTubeIframeAPIReady = function() {
+    const playerEl = document.getElementById('hero-yt-player');
+    if (!playerEl) return;
+
+    ytBackgroundPlayer = new YT.Player('hero-yt-player', {
+        videoId: 'f2AFb51xiaI',
+        playerVars: {
+            'autoplay': 1,
+            'controls': 0,
+            'mute': 1,
+            'loop': 1,
+            'playlist': 'f2AFb51xiaI', // Required for looping
+            'rel': 0,
+            'showinfo': 0,
+            'modestbranding': 1,
+            'playsinline': 1,
+            'iv_load_policy': 3,
+            'disablekb': 1,
+            'fs': 0,
+            'autohide': 1
+        },
+        events: {
+            'onReady': (event) => {
+                event.target.mute();
+                event.target.playVideo();
+                // Smooth fade-in once video is loaded and playing
+                const iframe = document.getElementById('hero-yt-player');
+                if (iframe) {
+                    iframe.style.opacity = '1';
+                }
+            },
+            'onStateChange': (event) => {
+                // Keep the loop stable across all browsers
+                if (event.data === YT.PlayerState.ENDED) {
+                    ytBackgroundPlayer.playVideo();
+                }
+            }
+        }
+    });
+};
 
 /* ==================== HERO ROLE CYCLER ==================== */
 function initHeroRoleCycler() {
