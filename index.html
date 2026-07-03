@@ -1,43 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sergio López Herrero — 3D Designer, VFX Artist & Unreal Engine Developer. Creating immersive real-time experiences with Unreal Engine 5, 3D modeling, and visual effects.">
-    <meta name="keywords" content="3D Designer, VFX Artist, Unreal Engine, UE5, 3D Modeling, Visual Effects, Portfolio, Real-time, Immersive Experiences">
+    
+    <!-- Premium SEO Meta Tags -->
+    <title>Sergio López Herrero — Desarrollador Unreal Engine 5 | Technical Artist | XR/VR Developer</title>
+    <meta name="description" content="Sergio López Herrero — Portfolio profesional de Desarrollador Unreal Engine 5, Artista Técnico (Technical Artist), Real-Time 3D y Desarrollador XR/VR. Experiencias de alta fidelidad, interactividad avanzada y optimización.">
+    <meta name="keywords" content="Unreal Engine 5, UE5, Technical Artist, Desarrollador XR, Desarrollador VR, 3D Tiempo Real, Niagara VFX, Blueprints, Shaders, C++, Portfolio, Videojuegos, Valladolid">
     <meta name="author" content="Sergio López Herrero">
-    <meta property="og:title" content="Sergio López Herrero — 3D Designer | VFX Artist | UE5 Developer">
-    <meta property="og:description" content="Creating immersive real-time experiences with Unreal Engine 5, 3D modeling, and visual effects.">
+    <link rel="canonical" href="https://sergiolopez.dev">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <title>Sergio López Herrero — 3D Designer | VFX Artist | UE5 Developer</title>
+    <meta property="og:url" content="https://sergiolopez.dev">
+    <meta property="og:title" content="Sergio López Herrero — Desarrollador Unreal Engine 5 & Technical Artist">
+    <meta property="og:description" content="Portfolio profesional que muestra sistemas interactivos en tiempo real, simulación VR de alta fidelidad, efectos visuales y optimización de pipelines 3D en Unreal Engine 5.">
+    <meta property="og:image" content="Media/Gestaverso/HighresScreenshot00003.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sergiolopez.dev">
+    <meta property="twitter:title" content="Sergio López Herrero — Desarrollador Unreal Engine 5 & Technical Artist">
+    <meta property="twitter:description" content="Portfolio profesional que muestra sistemas interactivos en tiempo real, simulación VR de alta fidelidad, efectos visuales y optimización de pipelines 3D en Unreal Engine 5.">
+    <meta property="twitter:image" content="Media/Gestaverso/HighresScreenshot00003.png">
+
+    <!-- JSON-LD Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sergio López Herrero",
+      "jobTitle": "Unreal Engine 5 Developer & Technical Artist",
+      "url": "https://sergiolopez.dev",
+      "sameAs": [
+        "https://www.linkedin.com",
+        "https://www.artstation.com",
+        "https://github.com"
+      ],
+      "knowsAbout": ["Unreal Engine 5", "Technical Art", "Real-Time 3D", "Niagara VFX", "VR/AR Development", "Blueprints", "C++"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad de León / VFX Master Academy"
+      }
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=11">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
     <!-- ============ NAVBAR ============ -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">
+            <a href="#hero" class="nav-logo" aria-label="Logo de Sergio López Herrero">
                 SLH<span class="logo-dot">.</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about" class="nav-link" data-section="about" data-i18n="nav_about">Sobre mí</a></li>
+                <li><a href="#demoreel" class="nav-link" data-section="demoreel" data-i18n="nav_demoreel">Demo Reel</a></li>
+                <li><a href="#featured-project" class="nav-link" data-section="featured-project" data-i18n="nav_featured">Proyecto Destacado</a></li>
                 <li><a href="#portfolio" class="nav-link" data-section="portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
                 <li><a href="#skills" class="nav-link" data-section="skills" data-i18n="nav_skills">Habilidades</a></li>
-                <li><a href="#experience" class="nav-link" data-section="experience" data-i18n="nav_experience">Experiencia</a></li>
-                <li><a href="#education" class="nav-link" data-section="education" data-i18n="nav_education">Educación</a></li>
+                <li><a href="#behind-scenes" class="nav-link" data-section="behind-scenes" data-i18n="nav_behind">Detrás de Escena</a></li>
+                <li><a href="#timeline" class="nav-link" data-section="timeline" data-i18n="nav_timeline">Trayectoria</a></li>
                 <li><a href="#contact" class="nav-link" data-section="contact" data-i18n="nav_contact">Contacto</a></li>
                 <li>
-                    <button id="langToggle" class="lang-toggle-btn">EN</button>
+                    <button id="langToggle" class="lang-toggle-btn" aria-label="Cambiar idioma">EN</button>
                 </li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+            <button class="nav-toggle" id="navToggle" aria-label="Alternar menú de navegación">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -47,29 +83,34 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
-        <canvas class="particle-canvas" id="particleCanvas"></canvas>
+        <div class="hero-video-container">
+            <video class="hero-video-bg" autoplay muted loop playsinline poster="Media/Gestaverso/HighresScreenshot00003.png" aria-label="Compilación cinematográfica en tiempo real de Unreal Engine 5">
+                <source src="Media/hero_reel.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-badge reveal-up">
                 <span class="badge-dot"></span>
-                <span data-i18n="hero_badge">Disponible para proyectos</span>
+                <span data-i18n="hero_badge">Disponible para Roles Senior</span>
             </div>
             <h1 class="hero-name reveal-up">
                 Sergio López <br/>
                 <span class="hero-surname">Herrero</span>
             </h1>
             <div class="hero-title-wrapper reveal-up">
-                <span class="hero-title-item" data-i18n="hero_title_1">Diseñador 3D</span>
+                <span class="hero-title-item">Desarrollador Unreal Engine 5</span>
                 <span class="hero-title-divider">·</span>
-                <span class="hero-title-item" data-i18n="hero_title_2">Artista VFX</span>
+                <span class="hero-title-item">Technical Artist</span>
                 <span class="hero-title-divider">·</span>
-                <span class="hero-title-item" data-i18n="hero_title_3">Desarrollador UE5</span>
+                <span class="hero-title-item">Real-Time 3D / XR</span>
             </div>
             <p class="hero-tagline reveal-up" data-i18n="hero_tagline">
-                Creando experiencias inmersivas en tiempo real.
+                Pionero en la creación de entornos interactivos en tiempo real, flujos de realidad virtual y programación avanzada de sistemas interactivos.
             </p>
             <div class="hero-cta reveal-up">
-                <a href="#portfolio" class="btn btn-primary" data-i18n="hero_btn_portfolio">
-                    Ver Portfolio
+                <a href="#featured-project" class="btn btn-primary" data-i18n="hero_btn_portfolio">
+                    Ver Caso de Estudio
                 </a>
                 <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">
                     Contactar
@@ -82,73 +123,278 @@
         </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section about" id="about">
+    <!-- ============ DEMO REEL ============ -->
+    <section class="section demoreel" id="demoreel">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="about_tag">01. PERFIL</span>
-                <h2 class="section-title" data-i18n="about_title">Sobre mí</h2>
+                <span class="section-tag" data-i18n="demoreel_tag">01. DEMOSTRACIÓN</span>
+                <h2 class="section-title" data-i18n="demoreel_title">Demo Reel</h2>
             </div>
-            <div class="about-grid">
-                <div class="about-text reveal-left">
-                    <p class="about-intro" data-i18n="about_intro">
-                        Soy un <strong>Diseñador 3D y Artista VFX</strong> especializado en aplicaciones en tiempo real
-                        y experiencias inmersivas usando <strong>Unreal Engine 5</strong>.
-                    </p>
-                    <p data-i18n="about_p1">
-                        Con sólida experiencia en modelado 3D, efectos visuales y entornos interactivos,
-                        me enfoco en crear contenido visual e interactivo de alta calidad que lleva al límite
-                        el renderizado en tiempo real. Al unir la visión creativa con la ejecución técnica, 
-                        desarrollo experiencias modernas que cautivan e inspiran.
-                    </p>
-                    <p data-i18n="about_p2">
-                        Actualmente trabajo como <strong>Programador y Modelador 3D</strong> con Unreal Engine 5, 
-                        y siempre estoy explorando nuevas formas de mejorar la narrativa interactiva mediante entornos y lógica avanzados.
-                    </p>
-                    <div class="about-location">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        <span data-i18n="about_location">Valladolid, España</span>
-                    </div>
+            <div class="demoreel-main-showcase reveal-up">
+                <div class="video-wrapper">
+                    <iframe 
+                        id="demoreelPlayer"
+                        src="https://www.youtube.com/embed/7GYlLNVob9Q?enablejsapi=1" 
+                        title="VFX & Real-Time Demo Reel — Sergio López Herrero"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <div class="about-cards reveal-right">
-                    <div class="about-card">
-                        <div class="about-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5"/><path d="M12 12v9"/><path d="M12 12L3 7.5"/></svg>
-                        </div>
-                        <div class="about-card-content">
-                            <h3>Unreal Engine 5</h3>
-                            <p data-i18n="about_card_ue5">Renderizado en tiempo real, blueprints, entornos interactivos y experiencias VR</p>
-                        </div>
+                <div class="demoreel-meta">
+                    <div class="demoreel-tabs">
+                        <button class="demoreel-tab active" data-video-id="7GYlLNVob9Q" data-i18n="reel_vfx_tab">VFX y Tiempo Real</button>
+                        <button class="demoreel-tab" data-video-id="e__ePSQ_4oU" data-i18n="reel_3d_tab">Modelado 3D y Render</button>
                     </div>
-                    <div class="about-card">
-                        <div class="about-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                        </div>
-                        <div class="about-card-content">
-                            <h3 data-i18n="about_card_3d_title">Modelado 3D</h3>
-                            <p data-i18n="about_card_3d">Modelos high-poly y game-ready con Maya, 3ds Max, ZBrush y Mudbox</p>
-                        </div>
-                    </div>
-                    <div class="about-card">
-                        <div class="about-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
-                        </div>
-                        <div class="about-card-content">
-                            <h3 data-i18n="about_card_vfx_title">Efectos Visuales</h3>
-                            <p data-i18n="about_card_vfx">Sistemas de partículas, simulaciones y composición con Houdini y After Effects</p>
-                        </div>
+                    <div class="demoreel-info-panel">
+                        <p id="demoreelDesc" data-i18n="reel_vfx_desc">
+                            Trabajo de efectos visuales que incluye sistemas Niagara en tiempo real, simulación, optimización, composición y arte técnico en Unreal Engine 5.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ PORTFOLIO ============ -->
+    <!-- ============ FEATURED PROJECT (CASE STUDY) ============ -->
+    <section class="section featured-project" id="featured-project">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag" data-i18n="featured_tag">02. PROYECTO PRINCIPAL</span>
+                <h2 class="section-title" data-i18n="featured_title">Caso de Estudio ACTIVA VR</h2>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-media reveal-left">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/f2AFb51xiaI" 
+                            title="ACTIVA VR Muestra del Proyecto"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="featured-media-thumbnails">
+                        <img src="Media/Activa/Foto/Fotos Corral/Corral_02.jpg" alt="ACTIVA Entorno del Corral" class="feat-thumb" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Casa_F03.jpg" alt="ACTIVA Entorno de Interior" class="feat-thumb" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Libro_F01.jpg" alt="ACTIVA Elementos Interactivos" class="feat-thumb" onclick="openLightbox(this.src)">
+                    </div>
+                </div>
+                
+                <div class="featured-info reveal-right">
+                    <span class="featured-label">Proyecto Destacado</span>
+                    <h3 data-i18n="proj_activa_title">ACTIVA</h3>
+                    
+                    <div class="featured-case-section">
+                        <h4 data-i18n="featured_overview">Resumen General</h4>
+                        <p data-i18n="proj_activa_desc">
+                            Desarrollo de una aplicación de realidad virtual orientada a residencias, enfocada en la estimulación cognitiva y ejercicios de motricidad fina y gruesa. Participé en la creación completa en Unreal Engine 5, incluyendo diseño de escenarios, desarrollo de interfaces 3D y programación de la lógica interactiva mediante Blueprints.
+                        </p>
+                    </div>
+                    
+                    <div class="featured-case-section">
+                        <h4 data-i18n="featured_role">Mi Rol y Responsabilidades</h4>
+                        <p data-i18n="featured_role_desc">
+                            Artista Técnico y Desarrollador Principal. Programé toda la lógica interactiva en Blueprints, integré mecánicas de VR, diseñé interfaces de usuario 3D y optimicé la iluminación y mallas estáticas para un rendimiento fluido en VR.
+                        </p>
+                    </div>
+                    
+                    <div class="featured-case-section">
+                        <h4 data-i18n="featured_challenges">Desafíos y Soluciones</h4>
+                        <p data-i18n="featured_challenges_desc">
+                            <strong>Desafío:</strong> Mantener 90 FPS estables en visores VR mientras se muestran entornos rurales e interiores de gran detalle. <br>
+                            <strong>Solución:</strong> Implementación de gestión agresiva de LOD, horneado de mapas de iluminación estática, optimización de texturas transparentes en vegetación y reducción de llamadas de dibujado combinando mallas.
+                        </p>
+                    </div>
+                    
+                    <div class="project-tags">
+                        <span>Unreal Engine 5</span>
+                        <span>VR Interaction</span>
+                        <span>Blueprints Logic</span>
+                        <span>Light Baking</span>
+                        <span>3D UI</span>
+                        <span>Profiling & Optimization</span>
+                    </div>
+                    
+                    <div class="featured-actions">
+                        <a href="https://t-enclave.com/activa/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="proj_view">
+                            Ver Proyecto
+                        </a>
+                        <button class="btn btn-outline" onclick="openProjectModal('activa')" data-i18n="proj_details">
+                            Explorar Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT ME ============ -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-summary-wrapper reveal-up">
+                <span class="section-tag" data-i18n="about_tag">03. PERFIL</span>
+                <h2 class="section-title" data-i18n="about_title">Sobre mí</h2>
+                <div class="about-text-content">
+                    <p class="about-intro" data-i18n="about_intro">
+                        Soy un <strong>Desarrollador Unreal Engine 5 y Artista Técnico</strong> dedicado al diseño y programación de pipelines 3D y entornos virtuales inmersivos en tiempo real.
+                    </p>
+                    <p data-i18n="about_p_short">
+                        Especializado en scripting de Blueprints, iluminación en tiempo real, optimización de alta fidelidad y efectos visuales Niagara. Construyo experiencias interactivas de alto rendimiento para simulaciones industriales, aplicaciones XR y medios digitales.
+                    </p>
+                    <div class="about-location-tag">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span data-i18n="about_location">Valladolid, España</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag" data-i18n="skills_tag">04. CAPACIDADES</span>
+                <h2 class="section-title" data-i18n="skills_title">Habilidades y Herramientas</h2>
+            </div>
+            
+            <div class="skills-grid reveal-up">
+                <!-- Unreal Engine 5 Card -->
+                <div class="skill-card">
+                    <div class="skill-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Unreal Engine 5</h3>
+                    <ul>
+                        <li>Blueprints Scripting</li>
+                        <li>Sistemas de partículas Niagara</li>
+                        <li>Shaders y Material Graph</li>
+                        <li>Integración de Realidad Virtual (VR)</li>
+                        <li>UMG UI / Widgets 3D</li>
+                        <li>Diseño de Niveles e Iluminación</li>
+                        <li>Optimización de LOD y GPU</li>
+                    </ul>
+                </div>
+                
+                <!-- Maya & 3D Modeling Card -->
+                <div class="skill-card">
+                    <div class="skill-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <h3>Arte 3D y Modelado</h3>
+                    <ul>
+                        <li>Modelado Hard Surface</li>
+                        <li>Autodesk Maya</li>
+                        <li>3ds Max</li>
+                        <li>Esculpido en ZBrush</li>
+                        <li>Desplegado de UV</li>
+                        <li>Texturizado PBR (Substance)</li>
+                        <li>Optimización de Assets para Juegos</li>
+                    </ul>
+                </div>
+                
+                <!-- Technical Art Card -->
+                <div class="skill-card">
+                    <div class="skill-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+                    </div>
+                    <h3>Technical Art</h3>
+                    <ul>
+                        <li>Generación Procedimental (Houdini)</li>
+                        <li>Rigging y Pesado Técnico</li>
+                        <li>Retargeting y Animación</li>
+                        <li>Simulaciones de Partículas VFX</li>
+                        <li>Iluminación Estática y Dinámica</li>
+                        <li>Optimización de Shaders</li>
+                        <li>Creación de Herramientas de Pipeline</li>
+                    </ul>
+                </div>
+                
+                <!-- Post-Production Card -->
+                <div class="skill-card">
+                    <div class="skill-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Z"/><path d="m10 8 6 4-6 4V8Z"/></svg>
+                    </div>
+                    <h3>Composición y Post</h3>
+                    <ul>
+                        <li>Composición en After Effects</li>
+                        <li>Diseño de Motion Graphics</li>
+                        <li>Etalonaje y Corrección de Color</li>
+                        <li>Edición en Premiere Pro</li>
+                        <li>Integración de VFX en Video</li>
+                        <li>Pintura Digital en Photoshop</li>
+                        <li>Estándares de Compresión de Video</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BEHIND THE SCENES ============ -->
+    <section class="section behind-scenes" id="behind-scenes">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag" data-i18n="behind_tag">05. TRABAJO TÉCNICO</span>
+                <h2 class="section-title" data-i18n="behind_title">Detrás de Escena</h2>
+                <p class="section-subtitle" data-i18n="behind_desc">Un vistazo dentro del Unreal Editor, mostrando sistemas de Blueprints reales, configuraciones de shaders y mallas wireframe.</p>
+            </div>
+            
+            <div class="bts-gallery reveal-up">
+                <!-- BTS Item 1 -->
+                <div class="bts-card">
+                    <div class="bts-media">
+                        <img src="Media/Cuentos_Unileon/NewLevelSequence_0128.png" alt="Vista del Secuenciador en Unreal Editor" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="bts-info">
+                        <h3>Secuenciador Cinematográfico</h3>
+                        <p>Ajustes de secuencias de cámaras y keyframes en el secuenciador de Unreal Engine.</p>
+                    </div>
+                </div>
+                
+                <!-- BTS Item 2 -->
+                <div class="bts-card">
+                    <div class="bts-media">
+                        <img src="Media/Gestaverso/HighresScreenshot00007.png" alt="Viewport de iluminación en Unreal Engine" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="bts-info">
+                        <h3>Iluminación y Atmosfera</h3>
+                        <p>Diseño de iluminación estática horneada, integración de niebla volumétrica y optimización en el editor.</p>
+                    </div>
+                </div>
+                
+                <!-- BTS Item 3 -->
+                <div class="bts-card">
+                    <div class="bts-media">
+                        <img src="Media/Activa/Foto/Fotos Corral/Nubes_03.jpg" alt="Niagara sky particles" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="bts-info">
+                        <h3>Sistemas de Partículas Climáticas</h3>
+                        <p>Configuración de cúpulas de cielo, partículas de nubes y setups meteorológicos en Niagara.</p>
+                    </div>
+                </div>
+                
+                <!-- BTS Item 4 -->
+                <div class="bts-card">
+                    <div class="bts-media">
+                        <img src="Media/Carnica/Fotos/Image Sequence_020_0000.jpg" alt="Shaders y material graph" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="bts-info">
+                        <h3>Verificación de Materiales PBR</h3>
+                        <p>Comprobación de rugosidad, normales y parámetros de reflectividad metálica bajo iluminación de producción.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PORTFOLIO GRID ============ -->
     <section class="section portfolio" id="portfolio">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="portfolio_tag">02. TRABAJO</span>
-                <h2 class="section-title" data-i18n="portfolio_title">Portfolio</h2>
+                <span class="section-tag" data-i18n="portfolio_tag">06. ARCHIVO</span>
+                <h2 class="section-title" data-i18n="portfolio_title">Proyectos Interactivos</h2>
             </div>
 
             <!-- Category Filters -->
@@ -159,99 +405,15 @@
                 <button class="filter-btn" data-filter="vfx" data-i18n="filter_vfx">VFX</button>
             </div>
 
-            <!-- Demo Reels -->
-            <div class="demo-reels reveal-up">
-                <div class="demo-reel-card" data-category="3d">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/e__ePSQ_4oU" 
-                            title="3D Demo Reel — Sergio López Herrero"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <div class="reel-info">
-                        <div class="reel-header">
-                            <span class="reel-badge" data-i18n="reel_badge">Demo Reel</span>
-                        </div>
-                        <h3 data-i18n="reel_3d_title">3D Demo Reel</h3>
-                        <p data-i18n="reel_3d_desc">Muestra de proyectos de modelado 3D, texturizado y renderizado creados con herramientas estándar de la industria para pipelines profesionales.</p>
-                        <div class="reel-tools">
-                            <span>Maya</span>
-                            <span>3ds Max</span>
-                            <span>ZBrush</span>
-                            <span>UE5</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-reel-card" data-category="vfx">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/7GYlLNVob9Q" 
-                            title="VFX Demo Reel — Sergio López Herrero"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <div class="reel-info">
-                        <div class="reel-header">
-                            <span class="reel-badge" data-i18n="reel_badge2">Demo Reel</span>
-                        </div>
-                        <h3 data-i18n="reel_vfx_title">VFX Demo Reel</h3>
-                        <p data-i18n="reel_vfx_desc">Trabajo de efectos visuales que incluye sistemas de partículas, simulaciones complejas, composición y VFX en tiempo real optimizados.</p>
-                        <div class="reel-tools">
-                            <span>Houdini</span>
-                            <span>After Effects</span>
-                            <span>UE5</span>
-                            <span>Premiere</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Project Grid -->
             <div class="project-grid">
-                <!-- ACTIVA -->
-                <div class="project-card reveal-up" data-category="unreal">
-                    <div class="project-visual">
-                        <div class="project-media-wrapper" style="width: 100%; height: 100%; overflow: hidden; border-radius: 8px; position: relative;">
-                            <iframe 
-                                src="https://www.youtube.com/embed/f2AFb51xiaI?autoplay=1&mute=1&loop=1&playlist=f2AFb51xiaI&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0" 
-                                title="ACTIVA Corporativo"
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%) scale(1.3); pointer-events: none;">
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category-tag">Unreal Engine / VR</span>
-                        <h3 data-i18n="proj_activa_title">ACTIVA</h3>
-                        <p data-i18n="proj_activa_desc">Desarrollo de una aplicación de realidad virtual orientada a residencias, enfocada en la estimulación cognitiva y ejercicios de motricidad fina y gruesa. Participé en la creación completa en Unreal Engine 5, incluyendo diseño de escenarios, desarrollo de interfaces 3D y programación de la lógica interactiva mediante Blueprints.</p>
-                        <div class="project-tools">
-                            <span>UE5</span>
-                            <span>VR</span>
-                            <span>Blueprints</span>
-                            <span>3D UI</span>
-                        </div>
-                        <div style="margin-top: 15px; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="https://t-enclave.com/activa/" target="_blank" rel="noopener noreferrer" style="color: var(--white); text-decoration: underline; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px;"><span data-i18n="proj_view">Ver Proyecto</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                            <button class="btn-detail" onclick="openProjectModal('activa')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- GESTAVERSO -->
                 <div class="project-card reveal-up" data-category="unreal">
                     <div class="project-visual">
-                        <div class="project-media-wrapper" style="width: 100%; height: 100%; overflow: hidden; border-radius: 8px;">
-                            <img src="Media/Gestaverso/HighresScreenshot00003.png" alt="Gestaverso" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="Media/Gestaverso/HighresScreenshot00003.png" alt="Viewport de Gestaverso" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="overlay-role">Technical Artist</span>
+                            <span class="overlay-duration">2024</span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -260,14 +422,13 @@
                         <p data-i18n="proj_gestaverso_desc">Desarrollo de una experiencia inmersiva dirigida a mujeres embarazadas, diseñada para acompañamiento y actividades interactivas. Creación de entornos 3D y desarrollo de la lógica de interacción mediante Blueprints en Unreal Engine 5.</p>
                         <div class="project-tools">
                             <span>UE5</span>
+                            <span>VR</span>
                             <span>Blueprints</span>
-                            <span>3D Environments</span>
+                            <span>Environment Art</span>
                         </div>
-                        <div style="margin-top: 15px; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="https://gestaverso.com/" target="_blank" rel="noopener noreferrer" style="color: var(--white); text-decoration: underline; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px;"><span data-i18n="proj_view">Ver Proyecto</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                            <button class="btn-detail" onclick="openProjectModal('gestaverso')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
+                        <div class="project-actions-row">
+                            <a href="https://gestaverso.com/" target="_blank" rel="noopener noreferrer" class="proj-link-btn" aria-label="Visitar sitio de Gestaverso"><span data-i18n="proj_view">Ver Proyecto</span></a>
+                            <button class="btn-detail-card" onclick="openProjectModal('gestaverso')" data-i18n="proj_details">Explorar Detalles</button>
                         </div>
                     </div>
                 </div>
@@ -275,14 +436,10 @@
                 <!-- CUENTOS UNILEON -->
                 <div class="project-card reveal-up" data-category="unreal">
                     <div class="project-visual">
-                        <div class="project-media-wrapper" style="width: 100%; height: 100%; overflow: hidden; border-radius: 8px; position: relative;">
-                            <iframe 
-                                src="https://www.youtube.com/embed/jbF_Am0VOHg?autoplay=1&mute=1&loop=1&playlist=jbF_Am0VOHg&controls=0&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0" 
-                                title="Cuentos Unileon"
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%) scale(1.3); pointer-events: none;">
-                            </iframe>
+                        <img src="Media/Cuentos_Unileon/NewLevelSequence_0002.png" alt="Viewport de Cuentos Unileon" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="overlay-role">Programador Interactivo</span>
+                            <span class="overlay-duration">2024</span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -292,24 +449,22 @@
                         <div class="project-tools">
                             <span>UE5</span>
                             <span>Blueprints</span>
-                            <span>Narrative</span>
+                            <span>Level Design</span>
+                            <span>Sequencer</span>
                         </div>
-                        <div style="margin-top: 15px;">
-                            <button class="btn-detail" onclick="openProjectModal('unileon')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
+                        <div class="project-actions-row">
+                            <button class="btn-detail-card" onclick="openProjectModal('unileon')" data-i18n="proj_details">Explorar Detalles</button>
                         </div>
                     </div>
                 </div>
 
-
-
-
                 <!-- INDUSTRIA DEMO -->
                 <div class="project-card reveal-up" data-category="unreal">
                     <div class="project-visual">
-                        <div class="project-media-wrapper" style="width: 100%; height: 100%; overflow: hidden; border-radius: 8px;">
-                            <img src="Media/Industria_Demo/HighresScreenshot00002.png" alt="Industria Demo" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="Media/Industria_Demo/HighresScreenshot00002.png" alt="Viewport de Industria Demo" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="overlay-role">Programador Gameplay</span>
+                            <span class="overlay-duration">2024</span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -318,13 +473,11 @@
                         <p data-i18n="proj_industria_desc">Desarrollo de una experiencia interactiva orientada al aprendizaje en entornos industriales. Creación de escenarios y desarrollo de lógica interactiva con Blueprints en Unreal Engine 5, enfocada en formación.</p>
                         <div class="project-tools">
                             <span>UE5</span>
-                            <span>Blueprints</span>
-                            <span>Training</span>
+                            <span>Blueprints Scripting</span>
+                            <span>Physics Interaction</span>
                         </div>
-                        <div style="margin-top: 15px;">
-                            <button class="btn-detail" onclick="openProjectModal('industria')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
+                        <div class="project-actions-row">
+                            <button class="btn-detail-card" onclick="openProjectModal('industria')" data-i18n="proj_details">Explorar Detalles</button>
                         </div>
                     </div>
                 </div>
@@ -332,8 +485,10 @@
                 <!-- CÁRNICA -->
                 <div class="project-card reveal-up" data-category="unreal">
                     <div class="project-visual">
-                        <div class="project-media-wrapper" style="width: 100%; height: 100%; overflow: hidden; border-radius: 8px;">
-                            <img src="Media/Carnica/Fotos/Image Sequence_017_0000.jpg" alt="Cárnica XR2Learn" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="Media/Carnica/Fotos/Image Sequence_017_0000.jpg" alt="Viewport de Cárnica" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="overlay-role">Desarrollador Unreal</span>
+                            <span class="overlay-duration">2023</span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -342,62 +497,12 @@
                         <p data-i18n="proj_carnica_desc">Desarrollo de una aplicación formativa enfocada al sector cárnico dentro de un entorno inmersivo. Creación de escenarios 3D y desarrollo de interacciones mediante Blueprints en Unreal Engine 5.</p>
                         <div class="project-tools">
                             <span>UE5</span>
-                            <span>Blueprints</span>
-                            <span>Training VR</span>
+                            <span>VR Mechanics</span>
+                            <span>Collision Setup</span>
                         </div>
-                        <div style="margin-top: 15px; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="https://t-enclave.com/xpotless-xr2learn/" target="_blank" rel="noopener noreferrer" style="color: var(--white); text-decoration: underline; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px;"><span data-i18n="proj_view">Ver Proyecto</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                            <button class="btn-detail" onclick="openProjectModal('carnica')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AJEDREZ CON CABEZA -->
-                <div class="project-card reveal-up" data-category="unreal">
-                    <div class="project-visual">
-                        <div class="project-placeholder">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category-tag">Unreal Engine / VR</span>
-                        <h3 data-i18n="proj_ajedrez_title">AJEDREZ CON CABEZA</h3>
-                        <p data-i18n="proj_ajedrez_desc">Desarrollo de una aplicación para la enseñanza del ajedrez en entorno digital. Integración y adaptación de un plugin especializado dentro de la aplicación para mejorar su funcionalidad en el entorno.</p>
-                        <div class="project-tools">
-                            <span>UE5</span>
-                            <span>Plugin Integration</span>
-                        </div>
-                        <div style="margin-top: 15px; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                            <a href="https://ajedrezconcabeza.com/" target="_blank" rel="noopener noreferrer" style="color: var(--white); text-decoration: underline; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px;"><span data-i18n="proj_view">Ver Proyecto</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-                            <button class="btn-detail" onclick="openProjectModal('ajedrez')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- IBERDROLA -->
-                <div class="project-card reveal-up" data-category="unreal">
-                    <div class="project-visual">
-                        <div class="project-placeholder">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category-tag">Unreal Engine / VR</span>
-                        <h3 data-i18n="proj_iberdrola_title">IBERDROLA</h3>
-                        <p data-i18n="proj_iberdrola_desc">Desarrollo de una experiencia inmersiva en entorno 360º para la visualización de estaciones. Creación de contenido orientado a exploración y visualización interactiva.</p>
-                        <div class="project-tools">
-                            <span>UE5</span>
-                            <span>360º VR</span>
-                            <span>Visualization</span>
-                        </div>
-                        <div style="margin-top: 15px;">
-                            <button class="btn-detail" onclick="openProjectModal('iberdrola')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
+                        <div class="project-actions-row">
+                            <a href="https://t-enclave.com/xpotless-xr2learn/" target="_blank" rel="noopener noreferrer" class="proj-link-btn"><span data-i18n="proj_view">Ver Proyecto</span></a>
+                            <button class="btn-detail-card" onclick="openProjectModal('carnica')" data-i18n="proj_details">Explorar Detalles</button>
                         </div>
                     </div>
                 </div>
@@ -408,6 +513,10 @@
                         <div class="project-placeholder">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5"/><path d="M12 12v9"/><path d="M12 12L3 7.5"/></svg>
                         </div>
+                        <div class="project-overlay">
+                            <span class="overlay-role">Programador de Widgets</span>
+                            <span class="overlay-duration">2023</span>
+                        </div>
                     </div>
                     <div class="project-info">
                         <span class="project-category-tag">Unreal Engine / VR</span>
@@ -415,13 +524,64 @@
                         <p data-i18n="proj_cajero_desc">Desarrollo de una experiencia interactiva para la formación en el uso de cajeros automáticos. Creación de escenarios y desarrollo de la lógica de interacción mediante Blueprints en Unreal Engine 5.</p>
                         <div class="project-tools">
                             <span>UE5</span>
-                            <span>Blueprints</span>
-                            <span>Simulation</span>
+                            <span>3D Widget Interaction</span>
+                            <span>Simulation Logic</span>
                         </div>
-                        <div style="margin-top: 15px;">
-                            <button class="btn-detail" onclick="openProjectModal('cajero')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
+                        <div class="project-actions-row">
+                            <button class="btn-detail-card" onclick="openProjectModal('cajero')" data-i18n="proj_details">Explorar Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AJEDREZ CON CABEZA -->
+                <div class="project-card reveal-up" data-category="unreal">
+                    <div class="project-visual">
+                        <div class="project-placeholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="overlay-role">Integrador de Plugins</span>
+                            <span class="overlay-duration">2024</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">Unreal Engine / VR</span>
+                        <h3 data-i18n="proj_ajedrez_title">AJEDREZ CON CABEZA</h3>
+                        <p data-i18n="proj_ajedrez_desc">Desarrollo de una aplicación para la enseñanza del ajedrez en entorno digital. Integración y adaptación de un plugin especializado dentro de la aplicación para mejorar su funcionalidad en el entorno.</p>
+                        <div class="project-tools">
+                            <span>UE5</span>
+                            <span>C++ Plugins</span>
+                            <span>API Bridge</span>
+                        </div>
+                        <div class="project-actions-row">
+                            <a href="https://ajedrezconcabeza.com/" target="_blank" rel="noopener noreferrer" class="proj-link-btn"><span data-i18n="proj_view">Ver Proyecto</span></a>
+                            <button class="btn-detail-card" onclick="openProjectModal('ajedrez')" data-i18n="proj_details">Explorar Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBERDROLA -->
+                <div class="project-card reveal-up" data-category="unreal">
+                    <div class="project-visual">
+                        <div class="project-placeholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="overlay-role">Líder Técnico VR</span>
+                            <span class="overlay-duration">2023</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category-tag">Unreal Engine / VR</span>
+                        <h3 data-i18n="proj_iberdrola_title">IBERDROLA</h3>
+                        <p data-i18n="proj_iberdrola_desc">Desarrollo de una experiencia inmersiva en entorno 360º para la visualización de estaciones. Creación de contenido orientado a exploración y visualización interactiva.</p>
+                        <div class="project-tools">
+                            <span>UE5</span>
+                            <span>Stereoscopic 360</span>
+                            <span>Level Optimizations</span>
+                        </div>
+                        <div class="project-actions-row">
+                            <button class="btn-detail-card" onclick="openProjectModal('iberdrola')" data-i18n="proj_details">Explorar Detalles</button>
                         </div>
                     </div>
                 </div>
@@ -429,170 +589,24 @@
                 <!-- ODONTOLOGÍA DEMO -->
                 <div class="project-card reveal-up" data-category="3d">
                     <div class="project-visual">
-                        <div class="project-media-wrapper" style="width: 100%; height: 100%; overflow: hidden; border-radius: 8px;">
-                            <img src="Media/Odontologia/Fotos/A.jpeg" alt="Odontología Demo" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="Media/Odontologia/Fotos/A.jpeg" alt="Viewport de Odontología Demo" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="overlay-role">Artista 3D</span>
+                            <span class="overlay-duration">2023</span>
                         </div>
                     </div>
                     <div class="project-info">
-                        <span class="project-category-tag">3D Modeling</span>
+                        <span class="project-category-tag">Modelado 3D</span>
                         <h3 data-i18n="proj_odontologia_title">ODONTOLOGÍA DEMO</h3>
                         <p data-i18n="proj_odontologia_desc">Modelado 3D de instrumental especializado (fresas dentales) para simulaciones médicas. Trabajo centrado en el detalle técnico y la precisión del modelo para pipelines profesionales.</p>
                         <div class="project-tools">
-                            <span>3D Modeling</span>
                             <span>Maya</span>
-                            <span>Texturing</span>
+                            <span>Hard Surface</span>
+                            <span>High-Poly bake</span>
+                            <span>PBR shaders</span>
                         </div>
-                        <div style="margin-top: 15px;">
-                            <button class="btn-detail" onclick="openProjectModal('odontologia')" style="background: var(--accent-blue-dim); color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;">
-                                <span data-i18n="proj_details">Explorar Detalles</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ SKILLS ============ -->
-    <section class="section skills" id="skills">
-        <div class="container">
-            <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="skills_tag">03. CAPACIDADES</span>
-                <h2 class="section-title" data-i18n="skills_title">Habilidades y Herramientas</h2>
-            </div>
-            <div class="skills-grid">
-                <!-- Software Skills -->
-                <div class="skills-column reveal-left">
-                    <h3 class="skills-subtitle" data-i18n="skills_software">
-                        Arsenal de Software
-                    </h3>
-                    <div class="skill-bars">
-                        <!-- Skill Item -->
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Unreal Engine 5</span>
-                                <span class="skill-percent">95%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="95"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Autodesk Maya</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>3ds Max</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>ZBrush</span>
-                                <span class="skill-percent">85%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Photoshop</span>
-                                <span class="skill-percent">80%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>After Effects</span>
-                                <span class="skill-percent">80%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Premiere Pro</span>
-                                <span class="skill-percent">75%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Houdini</span>
-                                <span class="skill-percent">75%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="75"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Mudbox</span>
-                                <span class="skill-percent">70%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" data-width="70"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Professional Skills -->
-                <div class="skills-column reveal-right">
-                    <h3 class="skills-subtitle" data-i18n="skills_pro">
-                        Competencias Clave
-                    </h3>
-                    <div class="professional-skills">
-                        <div class="pro-skill-card">
-                            <div class="pro-skill-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <div class="pro-skill-text">
-                                <h4 data-i18n="skill_pro_1">Trabajo en Equipo</h4>
-                                <p data-i18n="skill_pro_1_desc">Mentalidad colaborativa con equipos multidisciplinares en entornos ágiles.</p>
-                            </div>
-                        </div>
-                        <div class="pro-skill-card">
-                            <div class="pro-skill-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            </div>
-                            <div class="pro-skill-text">
-                                <h4 data-i18n="skill_pro_2">Liderazgo</h4>
-                                <p data-i18n="skill_pro_2_desc">Guía de proyectos técnicos y creativos desde el concepto hasta la entrega final.</p>
-                            </div>
-                        </div>
-                        <div class="pro-skill-card">
-                            <div class="pro-skill-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            </div>
-                            <div class="pro-skill-text">
-                                <h4 data-i18n="skill_pro_3">Responsabilidad</h4>
-                                <p data-i18n="skill_pro_3_desc">Ejecución fiable con profunda atención al detalle y optimización.</p>
-                            </div>
-                        </div>
-                        <div class="pro-skill-card">
-                            <div class="pro-skill-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                            </div>
-                            <div class="pro-skill-text">
-                                <h4 data-i18n="skill_pro_4">Comunicación</h4>
-                                <p data-i18n="skill_pro_4_desc">Articulación clara de conceptos técnicos complejos a compañeros no técnicos.</p>
-                            </div>
+                        <div class="project-actions-row">
+                            <button class="btn-detail-card" onclick="openProjectModal('odontologia')" data-i18n="proj_details">Explorar Detalles</button>
                         </div>
                     </div>
                 </div>
@@ -600,126 +614,125 @@
         </div>
     </section>
 
-    <!-- ============ EXPERIENCE ============ -->
-    <section class="section experience" id="experience">
+    <!-- ============ TIMELINE (EXPERIENCE & EDUCATION) ============ -->
+    <section class="section timeline-section" id="timeline">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="experience_tag">04. TRAYECTORIA</span>
-                <h2 class="section-title" data-i18n="experience_title">Experiencia</h2>
+                <span class="section-tag" data-i18n="experience_tag">07. TRAYECTORIA</span>
+                <h2 class="section-title" data-i18n="experience_title">Línea del Tiempo</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item reveal-left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-date" data-i18n="exp_date_1">
-                            Nov 2023 — Actualidad
-                        </div>
-                        <div class="timeline-content-inner">
-                            <h3 data-i18n="exp_title_1">Programador / Modelador 3D</h3>
-                            <h4>Enclave Formación S.L.</h4>
-                            <p data-i18n="exp_desc_1">Desarrollo de experiencias interactivas, modelos 3D y visualizaciones en tiempo real usando Unreal Engine 5. Responsable de programar lógica de juego, optimizar assets 3D de alta fidelidad e integrar efectos visuales modernos en pipelines de producción.</p>
-                            <div class="timeline-tags">
-                                <span>Unreal Engine 5</span>
-                                <span>C++ & Blueprints</span>
-                                <span>3D Pipeline</span>
-                            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-bar"></div>
+                
+                <!-- Item 1: Enclave -->
+                <div class="timeline-node reveal-up">
+                    <div class="timeline-marker">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date" data-i18n="exp_date_1">Nov 2023 — Actualidad</div>
+                        <h3 data-i18n="exp_title_1">Programador / Modelador 3D</h3>
+                        <h4 class="timeline-sub">Enclave Formación S.L.</h4>
+                        <p data-i18n="exp_desc_1">Desarrollo de experiencias interactivas, modelos 3D y visualizaciones en tiempo real usando Unreal Engine 5. Responsable de programar lógica de juego, optimizar assets 3D de alta fidelidad e integrar efectos visuales modernos en pipelines de producción.</p>
+                        <div class="timeline-badges">
+                            <span>Unreal Engine 5</span>
+                            <span>Blueprints Scripting</span>
+                            <span>VR Integrations</span>
+                            <span>Optimization</span>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item reveal-right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-date" data-i18n="exp_date_2">
-                            Abr 2018 — Jun 2019
-                        </div>
-                        <div class="timeline-content-inner">
-                            <h3 data-i18n="exp_title_2">Modelador 3D (Prácticas)</h3>
-                            <h4 data-i18n="exp_company_2">Museo de la Ciencia de Valladolid</h4>
-                            <p data-i18n="exp_desc_2">Creación de modelos 3D y visualizaciones conceptuales para exhibiciones educativas y de museo. Colaboración estrecha con el equipo de comisariado para transformar conceptos científicos en contenido digital interactivo y atractivo.</p>
-                            <div class="timeline-tags">
-                                <span>3D Content</span>
-                                <span>Autodesk Maya</span>
-                                <span>Visualization</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============ EDUCATION ============ -->
-    <section class="section education" id="education">
-        <div class="container">
-            <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="edu_tag">05. ACADÉMICO</span>
-                <h2 class="section-title" data-i18n="edu_title">Educación</h2>
-            </div>
-            <div class="education-grid">
-                <div class="edu-card reveal-up">
-                    <div class="edu-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                <!-- Item 2: VFX Master -->
+                <div class="timeline-node reveal-up">
+                    <div class="timeline-marker">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
                     </div>
-                    <div class="edu-content">
-                        <span class="edu-level" data-i18n="edu_level_1">Máster</span>
+                    <div class="timeline-content">
+                        <div class="timeline-date" data-i18n="edu_level_1">Máster</div>
                         <h3 data-i18n="edu_title_1">Máster en Efectos Visuales (VFX)</h3>
+                        <h4 class="timeline-sub">Academia Especializada</h4>
                         <p data-i18n="edu_desc_1">Técnicas avanzadas de VFX, composición compleja y efectos digitales para cine y aplicaciones en tiempo real.</p>
+                        <div class="timeline-badges">
+                            <span>Houdini Dynamics</span>
+                            <span>Nuke / After Effects</span>
+                            <span>Simulations</span>
+                        </div>
                     </div>
                 </div>
-                <div class="edu-card reveal-up">
-                    <div class="edu-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+
+                <!-- Item 3: 3D Master -->
+                <div class="timeline-node reveal-up">
+                    <div class="timeline-marker">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     </div>
-                    <div class="edu-content">
-                        <span class="edu-level" data-i18n="edu_level_2">Máster</span>
+                    <div class="timeline-content">
+                        <div class="timeline-date" data-i18n="edu_level_2">Máster</div>
                         <h3 data-i18n="edu_title_2">Máster en Animación 3D</h3>
+                        <h4 class="timeline-sub">Academia de Animación 3D</h4>
                         <p data-i18n="edu_desc_2">Formación integral en animación 3D, incluyendo animación de personajes, rigging técnico y producción cinematográfica.</p>
+                        <div class="timeline-badges">
+                            <span>Autodesk Maya</span>
+                            <span>Character Rigging</span>
+                            <span>Keyframe Anim</span>
+                        </div>
                     </div>
                 </div>
-                <div class="edu-card reveal-up">
-                    <div class="edu-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+
+                <!-- Item 4: Museum science -->
+                <div class="timeline-node reveal-up">
+                    <div class="timeline-marker">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                     </div>
-                    <div class="edu-content">
-                        <span class="edu-level" data-i18n="edu_level_3">Grado Superior (FP)</span>
+                    <div class="timeline-content">
+                        <div class="timeline-date" data-i18n="exp_date_2">Abr 2018 — Jun 2019</div>
+                        <h3 data-i18n="exp_title_2">Modelador 3D (Prácticas)</h3>
+                        <h4 class="timeline-sub" data-i18n="exp_company_2">Museo de la Ciencia de Valladolid</h4>
+                        <p data-i18n="exp_desc_2">Creación de modelos 3D y visualizaciones conceptuales para exhibiciones educativas y de museo. Colaboración estrecha con el equipo de comisariado para transformar conceptos científicos en contenido digital interactivo y atractivo.</p>
+                        <div class="timeline-badges">
+                            <span>Hard Surface</span>
+                            <span>Rendering</span>
+                            <span>Exhibition Visuals</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5: FP Animacion -->
+                <div class="timeline-node reveal-up">
+                    <div class="timeline-marker">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date" data-i18n="edu_level_3">Grado Superior (FP)</div>
                         <h3 data-i18n="edu_title_3">Animación 3D, Juegos y Entornos Interactivos</h3>
+                        <h4 class="timeline-sub">Centro Educativo Profesional</h4>
                         <p data-i18n="edu_desc_3">Formación profesional en desarrollo de juegos, producción de arte 3D y creación de medios inmersivos.</p>
-                    </div>
-                </div>
-                <div class="edu-card reveal-up">
-                    <div class="edu-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                    </div>
-                    <div class="edu-content">
-                        <span class="edu-level" data-i18n="edu_level_4">Bachillerato</span>
-                        <h3 data-i18n="edu_title_4">Ciencias y Tecnología</h3>
-                        <p data-i18n="edu_desc_4">Base en ciencias, matemáticas y tecnología, proporcionando un sólido enfoque analítico para la resolución de problemas.</p>
+                        <div class="timeline-badges">
+                            <span>Game Design</span>
+                            <span>Level Art</span>
+                            <span>Interactive Media</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Languages subsection -->
+            <!-- Languages and Bilingual Section -->
             <div class="languages-wrapper reveal-up">
-                <h3 class="languages-title" data-i18n="lang_title">
-                    Idiomas
-                </h3>
+                <h3 class="languages-title" data-i18n="lang_title">Idiomas</h3>
                 <div class="languages-grid">
                     <div class="language-card">
-                        <div class="lang-header">
-                            <span class="language-flag">🇪🇸</span>
-                            <div>
-                                <h4 data-i18n="lang_es">Español</h4>
-                                <span class="language-level" data-i18n="lang_es_lvl">Nativo</span>
-                            </div>
+                        <span class="language-flag">🇪🇸</span>
+                        <div>
+                            <h4 data-i18n="lang_es">Español</h4>
+                            <span class="language-level" data-i18n="lang_es_lvl">Nativo</span>
                         </div>
                     </div>
                     <div class="language-card">
-                        <div class="lang-header">
-                            <span class="language-flag">🇬🇧</span>
-                            <div>
-                                <h4 data-i18n="lang_en">Inglés</h4>
-                                <span class="language-level" data-i18n="lang_en_lvl">B2 — Cambridge</span>
-                            </div>
+                        <span class="language-flag">🇬🇧</span>
+                        <div>
+                            <h4 data-i18n="lang_en">Inglés</h4>
+                            <span class="language-level" data-i18n="lang_en_lvl">B2 — Cambridge</span>
                         </div>
                     </div>
                 </div>
@@ -731,70 +744,66 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="contact_tag">06. CONECTAR</span>
+                <span class="section-tag" data-i18n="contact_tag">08. CONECTAR</span>
                 <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
-                <p class="section-subtitle" data-i18n="contact_sub">¿Interesado en colaborar o tienes un proyecto en mente? Construyamos algo extraordinario.</p>
+                <p class="section-subtitle" data-i18n="contact_sub">¿Interesado en vacantes de Artista Técnico senior o desarrollo avanzado en Unreal Engine? Colaboremos para construir algo extraordinario.</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info reveal-left">
-                    <div class="contact-info-card">
-                        <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-i18n="contact_email">Correo</h4>
-                            <a href="mailto:sergioxdc@gmail.com">sergioxdc@gmail.com</a>
-                        </div>
+            
+            <div class="contact-links-grid reveal-up">
+                <!-- Email Link -->
+                <a href="mailto:sergioxdc@gmail.com" class="contact-action-card">
+                    <div class="contact-action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </div>
-                    <div class="contact-info-card">
-                        <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-i18n="contact_phone">Teléfono</h4>
-                            <a href="tel:+34691868419">+34 691 86 84 19</a>
-                        </div>
+                    <div class="contact-action-text">
+                        <span>Correo</span>
+                        <strong>sergioxdc@gmail.com</strong>
                     </div>
-                    <div class="contact-info-card">
-                        <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-i18n="contact_location">Ubicación</h4>
-                            <span data-i18n="contact_loc_value">Valladolid, España</span>
-                        </div>
+                </a>
+                
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-action-card">
+                    <div class="contact-action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                     </div>
+                    <div class="contact-action-text">
+                        <span>LinkedIn</span>
+                        <strong data-i18n="contact_linkedin">Conectar Profesionalmente</strong>
+                    </div>
+                </a>
 
-                    <div class="social-links">
-                        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.08c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.41z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                        <a href="https://www.artstation.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="ArtStation">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17l2 4h12l-2-4H2z"/><path d="M15.2 3H7L16 21h3l-2-4L10.8 3h4.4z"/><path d="M22 17l-2-4"/></svg>
-                        </a>
+                <!-- ArtStation -->
+                <a href="https://www.artstation.com" target="_blank" rel="noopener noreferrer" class="contact-action-card">
+                    <div class="contact-action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17l2 4h12l-2-4H2z"/><path d="M15.2 3H7L16 21h3l-2-4L10.8 3h4.4z"/><path d="M22 17l-2-4"/></svg>
                     </div>
-                </div>
-                <form class="contact-form reveal-right" id="contactForm">
-                    <div class="form-group">
-                        <label for="contactName" data-i18n="form_name">Nombre</label>
-                        <input type="text" id="contactName" name="name" required placeholder="Tu Nombre" autocomplete="name">
+                    <div class="contact-action-text">
+                        <span>ArtStation</span>
+                        <strong data-i18n="contact_artstation">Ver Portafolios 3D</strong>
                     </div>
-                    <div class="form-group">
-                        <label for="contactEmail" data-i18n="form_email">Correo</label>
-                        <input type="email" id="contactEmail" name="email" required placeholder="tu@correo.com" autocomplete="email">
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-action-card">
+                    <div class="contact-action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                     </div>
-                    <div class="form-group">
-                        <label for="contactMessage" data-i18n="form_message">Mensaje</label>
-                        <textarea id="contactMessage" name="message" rows="5" required placeholder="¿En qué te puedo ayudar?"></textarea>
+                    <div class="contact-action-text">
+                        <span>GitHub</span>
+                        <strong data-i18n="contact_github">Explorar Código</strong>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
-                        <span class="btn-text" data-i18n="form_submit">Enviar Mensaje</span>
-                        <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    </button>
-                </form>
+                </a>
+
+                <!-- Download CV -->
+                <a href="Media/CV_Sergio_Lopez.pdf" download class="contact-action-card contact-action-highlight">
+                    <div class="contact-action-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                    <div class="contact-action-text">
+                        <span>Curriculum Vitae</span>
+                        <strong data-i18n="contact_cv">Descargar Currículum (PDF)</strong>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -804,23 +813,23 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    SLH.
+                    SLH<span class="logo-dot">.</span>
                 </div>
-                <p class="footer-text" data-i18n="footer_copy">&copy; 2025 Sergio López Herrero. Todos los derechos reservados.</p>
+                <p class="footer-text" data-i18n="footer_copy">&copy; 2026 Sergio López Herrero. Todos los derechos reservados.</p>
                 <div class="footer-links">
-                    <a href="#about" data-i18n="footer_about">Sobre mí</a>
-                    <a href="#portfolio" data-i18n="footer_work">Portfolio</a>
-                    <a href="#experience" data-i18n="footer_exp">Experiencia</a>
+                    <a href="#demoreel" data-i18n="nav_demoreel">Demo Reel</a>
+                    <a href="#featured-project" data-i18n="nav_featured">Proyecto Destacado</a>
+                    <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+                    <a href="#contact" data-i18n="nav_contact">Contacto</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <!-- ============ PROJECT MODAL ============ -->
-    <div id="projectModal" class="modal">
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <button class="modal-close" onclick="closeProjectModal()" aria-label="Cerrar modal de detalles">&times;</button>
             <div id="modalBody" class="modal-body">
                 <!-- Content will be injected by JavaScript -->
             </div>
@@ -828,11 +837,11 @@
     </div>
 
     <!-- ============ LIGHTBOX (IMAGE ZOOM) ============ -->
-    <div id="imageLightbox" class="lightbox" onclick="closeLightbox()">
+    <div id="imageLightbox" class="lightbox" role="dialog" aria-modal="true" onclick="closeLightbox()" aria-label="Cerrar ampliación de imagen">
         <span class="lightbox-close">&times;</span>
-        <img id="lightboxImg" src="" alt="Zoomed Image">
+        <img id="lightboxImg" src="" alt="Vista Ampliada">
     </div>
 
-    <script src="script.js?v=11"></script>
+    <script src="script.js?v=12"></script>
 </body>
 </html>

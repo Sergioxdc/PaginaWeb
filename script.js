@@ -1,15 +1,14 @@
 /* ============================================================
    SERGIO LÓPEZ HERRERO — PORTFOLIO
-   JavaScript: Particles, Animations, Interactivity
+   JavaScript: Particles, Translations, Custom Case Modals, Tabs
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     initNavbar();
     initScrollReveal();
-    initSkillBars();
+    initDemoReelTabs();
     initPortfolioFilters();
-    initContactForm();
     initSmoothScroll();
     initLanguageSwitcher();
 });
@@ -22,35 +21,36 @@ function initParticles() {
 
     let width, height;
     let particles = [];
-    let mouse = { x: null, y: null, radius: 150 };
+    let mouse = { x: null, y: null, radius: 180 };
     let animationId;
 
-    // Elegant tech colors: Soft blue, soft cyan, and white
+    // Premium tech colors
     const COLORS = [
-        { r: 59, g: 130, b: 246 },   // Blue
-        { r: 6, g: 182, b: 212 },    // Cyan
-        { r: 255, g: 255, b: 255 },  // White
+        { r: 59, g: 130, b: 246 },   // Unreal Blue
+        { r: 0, g: 240, b: 255 },    // Niagara Cyan
+        { r: 255, g: 255, b: 255 },  // White highlights
     ];
 
     function resize() {
-        width = canvas.width = canvas.offsetWidth;
-        height = canvas.height = canvas.offsetHeight;
+        const rect = canvas.parentNode.getBoundingClientRect();
+        width = canvas.width = rect.width;
+        height = canvas.height = rect.height;
     }
 
     function createParticles() {
         particles = [];
-        // More particles for a livelier background
-        const count = Math.min(Math.floor((width * height) / 10000), 120);
+        const density = 14000; // Particle density factor
+        const count = Math.min(Math.floor((width * height) / density), 90);
         for (let i = 0; i < count; i++) {
             const color = COLORS[Math.floor(Math.random() * COLORS.length)];
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.8, // Elegant, smooth speed
-                vy: (Math.random() - 0.5) * 0.8,
-                size: Math.random() * 2.5 + 1.2, // Small, sharp particles
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 2 + 1, // Elegant small particles
                 color: color,
-                alpha: Math.random() * 0.3 + 0.4, // Balanced opacity
+                alpha: Math.random() * 0.35 + 0.25,
                 pulseSpeed: Math.random() * 0.02 + 0.005,
                 pulseOffset: Math.random() * Math.PI * 2,
             });
@@ -58,7 +58,6 @@ function initParticles() {
     }
 
     function drawParticle(p, time) {
-        // Very subtle pulsing
         const pulse = Math.sin(time * p.pulseSpeed + p.pulseOffset) * 0.2 + 0.8;
         const alpha = p.alpha * pulse;
         
@@ -69,7 +68,7 @@ function initParticles() {
     }
 
     function drawConnections() {
-        const maxDist = 150; // Longer distance for more connections
+        const maxDist = 120;
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
@@ -77,13 +76,13 @@ function initParticles() {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < maxDist) {
-                    const alpha = (1 - dist / maxDist) * 0.12; // Subtle tech lines
+                    const alpha = (1 - dist / maxDist) * 0.08; // Subtle connections
                     const p = particles[i];
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.strokeStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha})`;
-                    ctx.lineWidth = 0.4;
+                    ctx.lineWidth = 0.3;
                     ctx.stroke();
                 }
             }
@@ -92,7 +91,7 @@ function initParticles() {
 
     function updateParticles() {
         for (const p of particles) {
-            // Mouse interaction (soft repulsion)
+            // Smooth mouse repulsion
             if (mouse.x !== null) {
                 const dx = p.x - mouse.x;
                 const dy = p.y - mouse.y;
@@ -100,25 +99,24 @@ function initParticles() {
                 if (dist < mouse.radius) {
                     const force = (mouse.radius - dist) / mouse.radius;
                     const angle = Math.atan2(dy, dx);
-                    // Smoother, consistent repulsion
-                    p.vx += Math.cos(angle) * force * 0.4;
-                    p.vy += Math.sin(angle) * force * 0.4;
+                    p.vx += Math.cos(angle) * force * 0.2;
+                    p.vy += Math.sin(angle) * force * 0.2;
                 }
             }
 
-            // Damping for smooth slow down
-            p.vx *= 0.99;
-            p.vy *= 0.99;
+            // Dampening for professional control
+            p.vx *= 0.95;
+            p.vy *= 0.95;
 
             // Move
             p.x += p.vx;
             p.y += p.vy;
 
-            // Soft wrap
-            if (p.x < -20) p.x = width + 20;
-            if (p.x > width + 20) p.x = -20;
-            if (p.y < -20) p.y = height + 20;
-            if (p.y > height + 20) p.y = -20;
+            // Wrap edges
+            if (p.x < -10) p.x = width + 10;
+            if (p.x > width + 10) p.x = -10;
+            if (p.y < -10) p.y = height + 10;
+            if (p.y > height + 10) p.y = -10;
         }
     }
 
@@ -134,24 +132,25 @@ function initParticles() {
         animationId = requestAnimationFrame(animate);
     }
 
-    // Mouse tracking
-    canvas.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    });
-    canvas.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
+    // Move tracking
+    const parentHero = canvas.closest('.hero');
+    if (parentHero) {
+        parentHero.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        parentHero.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
 
-    // Resize
     window.addEventListener('resize', () => {
         resize();
         createParticles();
     });
 
-    // Init
     resize();
     createParticles();
     animate();
@@ -164,19 +163,18 @@ function initNavbar() {
     const navLinks = document.getElementById('navLinks');
     const links = document.querySelectorAll('.nav-link');
 
-    // Scroll class
     function onScroll() {
-        if (window.scrollY > 20) {
+        if (window.scrollY > 30) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
 
-        // Active link highlighting
-        const sections = document.querySelectorAll('.section, .hero');
-        let currentSection = '';
+        // Highlight active link
+        const sections = document.querySelectorAll('section');
+        let currentSection = 'hero';
         sections.forEach((section) => {
-            const top = section.offsetTop - 120;
+            const top = section.offsetTop - 150;
             if (window.scrollY >= top) {
                 currentSection = section.id;
             }
@@ -193,7 +191,6 @@ function initNavbar() {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Mobile toggle
     if (navToggle) {
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
@@ -202,7 +199,6 @@ function initNavbar() {
         });
     }
 
-    // Close mobile menu on link click
     links.forEach((link) => {
         link.addEventListener('click', () => {
             navToggle.classList.remove('active');
@@ -216,144 +212,88 @@ function initNavbar() {
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -60px 0px',
-        threshold: 0.1,
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Stagger animation for grid items
-                const parent = entry.target.closest('.project-grid, .education-grid, .demo-reels, .professional-skills');
+                const parent = entry.target.closest('.project-grid, .bts-gallery, .skills-grid, .contact-links-grid, .timeline-container');
                 if (parent) {
                     const siblings = parent.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
                     const idx = Array.from(siblings).indexOf(entry.target);
-                    // Shorter delay for cleaner modern feel
-                    entry.target.style.transitionDelay = `${idx * 0.08}s`;
+                    entry.target.style.transitionDelay = `${idx * 0.06}s`;
                 }
-
                 entry.target.classList.add('revealed');
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { rootMargin: '0px 0px -80px 0px', threshold: 0.05 });
 
     revealElements.forEach((el) => observer.observe(el));
 }
 
-/* ==================== SKILL BARS ANIMATION ==================== */
-function initSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-bar-fill');
+/* ==================== DEMO REEL TABS ==================== */
+function initDemoReelTabs() {
+    const tabs = document.querySelectorAll('.demoreel-tab');
+    const player = document.getElementById('demoreelPlayer');
+    const desc = document.getElementById('demoreelDesc');
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const width = entry.target.getAttribute('data-width');
-                    entry.target.style.width = width + '%';
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.3 }
-    );
+    if (!player || tabs.length === 0) return;
 
-    skillBars.forEach((bar) => observer.observe(bar));
-}
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
 
-/* ==================== PORTFOLIO FILTERS ==================== */
-function initPortfolioFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    const demoReelCards = document.querySelectorAll('.demo-reel-card');
+            const videoId = tab.getAttribute('data-video-id');
+            player.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
 
-    filterBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            // Update active button
-            filterBtns.forEach((b) => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            // Filter project cards
-            projectCards.forEach((card) => {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.classList.remove('hidden');
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(15px)';
-                    requestAnimationFrame(() => {
-                        card.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    });
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // Filter demo reel cards
-            demoReelCards.forEach((card) => {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.style.display = '';
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(15px)';
-                    requestAnimationFrame(() => {
-                        card.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    });
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            // Update tab descriptions
+            if (videoId === '7GYlLNVob9Q') {
+                desc.setAttribute('data-i18n', 'reel_vfx_desc');
+                desc.innerHTML = currentLang === 'es' ? 
+                    'Trabajo de efectos visuales que incluye sistemas Niagara en tiempo real, simulación, optimización, composición y arte técnico en Unreal Engine 5.' : 
+                    'Visual effects work including real-time Niagara systems, simulation, optimization, composition and technical art in Unreal Engine 5.';
+            } else {
+                desc.setAttribute('data-i18n', 'reel_3d_desc');
+                desc.innerHTML = currentLang === 'es' ? 
+                    'Muestra de proyectos de modelado 3D, texturizado y renderizado creados con herramientas estándar de la industria para pipelines profesionales.' : 
+                    'A showcase of 3D modeling, texturing, and rendering projects created with industry-standard tools for professional pipelines.';
+            }
         });
     });
 }
 
-/* ==================== CONTACT FORM ==================== */
-function initContactForm() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
+/* ==================== PORTFOLIO FILTERS ==================== */
+function initPortfolioFilters() {
+    const filters = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filters.forEach(f => f.classList.remove('active'));
+            btn.classList.add('active');
 
-        const name = document.getElementById('contactName').value.trim();
-        const email = document.getElementById('contactEmail').value.trim();
-        const message = document.getElementById('contactMessage').value.trim();
+            const cat = btn.getAttribute('data-filter');
 
-        if (!name || !email || !message) return;
-
-        // Simple email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-
-        // Show success state
-        form.style.opacity = '0';
-        form.style.transform = 'translateY(15px)';
-
-        setTimeout(() => {
-            form.innerHTML = `
-                <div class="form-success">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <h3>Message Sent!</h3>
-                    <p>Thank you, ${name}. I'll get back to you soon.</p>
-                </div>
-            `;
-            form.style.transition = 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-            form.style.opacity = '1';
-            form.style.transform = 'translateY(0)';
-        }, 300);
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                
+                card.style.transition = 'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+                
+                if (cat === 'all' || cardCat === cat) {
+                    card.classList.remove('hidden');
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.classList.add('hidden');
+                    }, 400);
+                }
+            });
+        });
     });
 }
 
@@ -366,9 +306,8 @@ function initSmoothScroll() {
             const target = document.querySelector(targetId);
             if (target) {
                 const navHeight = document.getElementById('navbar').offsetHeight;
-                const top = target.offsetTop - navHeight;
                 window.scrollTo({
-                    top: top,
+                    top: target.offsetTop - navHeight + 10,
                     behavior: 'smooth',
                 });
             }
@@ -376,107 +315,72 @@ function initSmoothScroll() {
     });
 }
 
-/* ==================== LANGUAGE SWITCHER ==================== */
+/* ==================== LANGUAGE SYSTEM ==================== */
 const enTranslations = {
-    "nav_about": "About",
+    // Nav
+    "nav_demoreel": "Demo Reel",
+    "nav_featured": "Featured Project",
     "nav_portfolio": "Portfolio",
     "nav_skills": "Skills",
-    "nav_experience": "Experience",
-    "nav_education": "Education",
+    "nav_behind": "Behind Scenes",
+    "nav_timeline": "Trajectory",
     "nav_contact": "Contact",
-    "hero_badge": "Available for projects",
-    "hero_title_1": "3D Designer",
-    "hero_title_2": "VFX Artist",
-    "hero_title_3": "UE5 Developer",
-    "hero_tagline": "Creating immersive real-time experiences.",
-    "hero_btn_portfolio": "View Portfolio",
-    "hero_btn_contact": "Contact Me",
+
+    // Hero
+    "hero_badge": "Available for Senior Roles",
+    "hero_tagline": "Pioneering the future of real-time environments, virtual reality pipelines, and advanced interactive systems.",
+    "hero_btn_portfolio": "View Case Study",
+    "hero_btn_contact": "Get in Touch",
     "hero_scroll": "Scroll to explore",
-    "about_tag": "01. PROFILE",
-    "about_title": "About Me",
-    "about_intro": "I am a <strong>3D Designer and VFX Artist</strong> specialized in real-time applications and immersive experiences using <strong>Unreal Engine 5</strong>.",
-    "about_p1": "With strong experience in 3D modeling, visual effects, and interactive environments, I focus on creating high-quality visual and interactive content that pushes the boundaries of real-time rendering. By bridging the gap between creative vision and technical execution, I deliver modern experiences that captivate and inspire.",
-    "about_p2": "Currently working as a <strong>Programmer and 3D Modeler</strong> with Unreal Engine 5, I am always exploring new ways to enhance interactive storytelling through advanced environments and logic.",
-    "about_location": "Valladolid, Spain",
-    "about_card_ue5": "Real-time rendering, blueprints, interactive environments & VR experiences",
-    "about_card_3d_title": "3D Modeling",
-    "about_card_3d": "High-poly & game-ready models with Maya, 3ds Max, ZBrush & Mudbox",
-    "about_card_vfx_title": "Visual Effects",
-    "about_card_vfx": "Particle systems, simulations & compositing with Houdini & After Effects",
-    "portfolio_tag": "02. WORK",
-    "portfolio_title": "Portfolio",
-    "filter_all": "All",
-    "filter_unreal": "Unreal Engine / VR",
-    "filter_3d": "3D Modeling",
-    "filter_vfx": "VFX",
-    "reel_badge": "Demo Reel",
-    "reel_3d_title": "3D Demo Reel",
+
+    // Showcase
+    "demoreel_tag": "01. SHOWCASE",
+    "demoreel_title": "Demo Reel",
+    "reel_vfx_tab": "VFX & Real-Time",
+    "reel_3d_tab": "3D Modeling & Rendering",
+    "reel_vfx_desc": "Visual effects work including real-time Niagara systems, simulation, optimization, composition and technical art in Unreal Engine 5.",
     "reel_3d_desc": "A showcase of 3D modeling, texturing, and rendering projects created with industry-standard tools for professional pipelines.",
-    "reel_badge2": "Demo Reel",
-    "reel_vfx_title": "VFX Demo Reel",
-    "reel_vfx_desc": "Visual effects work including particle systems, complex simulations, compositing, and performance-optimized real-time VFX.",
-    "skills_tag": "03. CAPABILITIES",
-    "skills_title": "Skills & Tools",
-    "skills_software": "Software Arsenal",
-    "skills_pro": "Core Competencies",
-    "skill_pro_1": "Teamwork",
-    "skill_pro_1_desc": "Collaborative mindset with cross-functional teams in agile environments.",
-    "skill_pro_2": "Leadership",
-    "skill_pro_2_desc": "Guiding technical and creative projects from concept to final delivery.",
-    "skill_pro_3": "Responsibility",
-    "skill_pro_3_desc": "Reliable execution with deep attention to detail and optimization.",
-    "skill_pro_4": "Communication",
-    "skill_pro_4_desc": "Clear articulation of complex technical concepts to non-technical peers.",
-    "experience_tag": "04. TIMELINE",
-    "experience_title": "Experience",
-    "exp_date_1": "Nov 2023 — Present",
-    "exp_title_1": "Programmer / 3D Modeler",
-    "exp_desc_1": "Developing interactive experiences, 3D models, and real-time visualizations using Unreal Engine 5. Responsible for programming gameplay logic, optimizing high-fidelity 3D assets, and integrating modern visual effects into production pipelines.",
-    "exp_date_2": "Apr 2018 — Jun 2019",
-    "exp_title_2": "3D Modeler Intern",
-    "exp_company_2": "Science Museum of Valladolid",
-    "exp_desc_2": "Created 3D models and conceptual visualizations for educational exhibits and museum displays. Collaborated closely with the curation team to transform scientific concepts into engaging, interactive digital content.",
-    "edu_tag": "05. ACADEMICS",
-    "edu_title": "Education",
-    "edu_level_1": "Master's Degree",
-    "edu_title_1": "Master in Visual Effects",
-    "edu_desc_1": "Advanced VFX techniques, heavy compositing, and digital effects for both film and complex real-time applications.",
-    "edu_level_2": "Master's Degree",
-    "edu_title_2": "Master in 3D Animation",
-    "edu_desc_2": "Comprehensive 3D animation training covering character animation, technical rigging, and cinematic production.",
-    "edu_level_3": "Higher Technician",
-    "edu_title_3": "3D Animation, Games & Interactive Environments",
-    "edu_desc_3": "Professional training in full-cycle game development, 3D art production, and immersive media creation.",
-    "edu_level_4": "High School",
-    "edu_title_4": "Science and Technology",
-    "edu_desc_4": "Foundation in science, math, and technology disciplines, providing a strong analytical approach to problem-solving.",
-    "lang_title": "Languages",
-    "lang_es": "Spanish",
-    "lang_es_lvl": "Native",
-    "lang_en": "English",
-    "lang_en_lvl": "B2 — Cambridge",
-    "contact_tag": "06. CONNECT",
-    "contact_title": "Get in Touch",
-    "contact_sub": "Interested in collaborating or have a project in mind? Let's build something extraordinary.",
-    "contact_email": "Email",
-    "contact_phone": "Phone",
-    "contact_location": "Location",
-    "contact_loc_value": "Valladolid, Spain",
-    "form_name": "Name",
-    "form_email": "Email",
-    "form_message": "Message",
-    "form_submit": "Send Message",
-    "footer_copy": "&copy; 2025 Sergio López Herrero. All rights reserved.",
-    "footer_about": "About",
-    "footer_work": "Work",
-    "footer_exp": "Experience",
-    "proj_activa_title": "ACTIVA",
+
+    // Featured
+    "featured_tag": "02. FLAGSHIP PROJECT",
+    "featured_title": "ACTIVA VR Case Study",
+    "featured_overview": "Overview",
+    "featured_role": "My Role & Responsibilities",
+    "featured_role_desc": "Technical Artist and Core Developer. Programmed all interactive Blueprint logic, integrated VR mechanics, designed 3D user interfaces, and optimized lighting and static meshes for smooth VR performance.",
+    "featured_challenges": "Challenges & Solutions",
+    "featured_challenges_desc": "<strong>Challenge:</strong> Maintaining a stable 90 FPS on target headsets while showing high-detail rural and indoor environments. <br><strong>Solution:</strong> Implemented aggressive LOD management, baked static lighting maps, optimized transparent textures on vegetation, and reduced drawing calls by merging meshes.",
+
+    // About
+    "about_tag": "03. PROFILE",
+    "about_title": "About Me",
+    "about_intro": "I am a <strong>Unreal Engine 5 Developer & Technical Artist</strong> dedicated to engineering next-generation real-time 3D pipelines and immersive virtual environments.",
+    "about_p_short": "Specializing in Blueprints scripting, real-time lighting, high-fidelity optimization, and Niagara visual effects. I construct high-performance interactive experiences for industry simulations, XR applications, and digital media.",
+    "about_location": "Valladolid, Spain",
+
+    // Skills
+    "skills_tag": "04. EXPERTISE",
+    "skills_title": "Technical Skills & Software",
+
+    // Behind
+    "behind_tag": "05. WORKFLOW",
+    "behind_title": "Behind the Scenes",
+    "behind_desc": "A look inside the Unreal Editor, displaying real Blueprint systems, shader configurations, and wireframe meshes.",
+
+    // Portfolio
+    "portfolio_tag": "06. ARCHIVE",
+    "portfolio_title": "Interactive Projects",
+    "filter_all": "All Projects",
+    "filter_unreal": "Unreal Engine & VR",
+    "filter_3d": "3D Modeling",
+    "filter_vfx": "VFX Simulations",
+
+    // Projs
+    "proj_activa_title": "ACTIVA VR",
     "proj_activa_desc": "Development of a virtual reality application for senior residences, focused on cognitive stimulation and fine/gross motor exercises. Participated in full development using Unreal Engine 5, including environment design, 3D UI development, and interactive logic programming via Blueprints.",
     "proj_gestaverso_title": "GESTAVERSO",
     "proj_gestaverso_desc": "Development of an immersive experience for pregnant women, designed for support and interactive activities. Creation of 3D environments and interactive logic using Blueprints in Unreal Engine 5.",
     "proj_unileon_title": "CUENTOS UNILEON",
     "proj_unileon_desc": "Development of an interactive storytelling experience in a virtual environment. Creation of 3D scenarios and programming of events and interactions using Blueprints in Unreal Engine 5.",
-
     "proj_industria_title": "INDUSTRIA DEMO",
     "proj_industria_desc": "Development of an interactive experience oriented towards learning in industrial environments. Creation of scenarios and interactive logic development with Blueprints in Unreal Engine 5, focused on training.",
     "proj_carnica_title": "CÁRNICA (XR2Learn)",
@@ -489,8 +393,46 @@ const enTranslations = {
     "proj_cajero_desc": "Development of an interactive experience for training in the use of ATMs. Creation of scenarios and interaction logic development via Blueprints in Unreal Engine 5.",
     "proj_odontologia_title": "DENTISTRY DEMO",
     "proj_odontologia_desc": "3D modeling of specialized dental instruments (burs) for medical simulations. Work focused on technical detail and model precision for professional pipelines.",
+    
     "proj_view": "View Project",
-    "proj_details": "Explore Details"
+    "proj_details": "Explore Details",
+
+    // Timeline
+    "experience_tag": "07. TRAJECTORY",
+    "experience_title": "Career Timeline",
+    "exp_date_1": "Nov 2023 — Present",
+    "exp_title_1": "Programmer / 3D Modeler",
+    "exp_desc_1": "Developing interactive experiences, 3D models, and real-time visualizations using Unreal Engine 5. Responsible for programming gameplay logic, optimizing high-fidelity 3D assets, and integrating modern visual effects into production pipelines.",
+    "exp_date_2": "Apr 2018 — Jun 2019",
+    "exp_title_2": "3D Modeler Intern",
+    "exp_company_2": "Science Museum of Valladolid",
+    "exp_desc_2": "Created 3D models and conceptual visualizations for educational exhibits and museum displays. Collaborated closely with the curation team to transform scientific concepts into engaging, interactive digital content.",
+    
+    "edu_level_1": "Master's Degree",
+    "edu_title_1": "Master in Visual Effects (VFX)",
+    "edu_desc_1": "Advanced VFX techniques, heavy compositing, and digital effects for both film and complex real-time applications.",
+    "edu_level_2": "Master's Degree",
+    "edu_title_2": "Master in 3D Animation",
+    "edu_desc_2": "Comprehensive 3D animation training covering character animation, rigging technical scripts, and production cinematics.",
+    "edu_level_3": "Higher Technician",
+    "edu_title_3": "3D Animation, Games & Interactive Environments",
+    "edu_desc_3": "Professional training in full-cycle game development, 3D art production, and immersive media creation.",
+    
+    "lang_title": "Languages",
+    "lang_es": "Spanish",
+    "lang_es_lvl": "Native Speaker",
+    "lang_en": "English",
+    "lang_en_lvl": "B2 Upper-Intermediate — Cambridge",
+
+    // Contact
+    "contact_tag": "08. CONNECT",
+    "contact_title": "Get in Touch",
+    "contact_sub": "Interested in senior Technical Art or Unreal Engine development opportunities? Let's construct something extraordinary.",
+    "contact_linkedin": "Connect Professionally",
+    "contact_artstation": "View 3D Portfolios",
+    "contact_github": "Browse Blueprint & C++ Code",
+    "contact_cv": "Download Resume (PDF)",
+    "footer_copy": "&copy; 2026 Sergio López Herrero. All rights reserved."
 };
 
 let currentLang = localStorage.getItem('site_lang') || 'es';
@@ -500,7 +442,7 @@ function initLanguageSwitcher() {
     const langToggle = document.getElementById('langToggle');
     if (!langToggle) return;
 
-    // Save initial Spanish translations from the DOM
+    // Save initial Spanish text from DOM
     document.querySelectorAll('[data-i18n]').forEach(el => {
         esTranslations[el.getAttribute('data-i18n')] = el.innerHTML;
     });
@@ -518,174 +460,234 @@ function initLanguageSwitcher() {
                 el.innerHTML = dict[key];
             }
         });
-        
-        // Update placeholders
-        const nameInput = document.getElementById('contactName');
-        const emailInput = document.getElementById('contactEmail');
-        const msgInput = document.getElementById('contactMessage');
-        if (nameInput) nameInput.placeholder = lang === 'es' ? 'Tu Nombre' : 'John Doe';
-        if (emailInput) emailInput.placeholder = lang === 'es' ? 'tu@correo.com' : 'john@example.com';
-        if (msgInput) msgInput.placeholder = lang === 'es' ? '¿En qué te puedo ayudar?' : 'How can I help you?';
     }
 
     langToggle.addEventListener('click', () => {
         setLanguage(currentLang === 'es' ? 'en' : 'es');
     });
 
-    // Apply initial language if not Spanish
     if (currentLang === 'en') {
         setLanguage('en');
     }
 }
 
-/* ==================== PROJECT MODAL LOGIC ==================== */
+/* ==================== DYNAMIC CASE STUDY MODAL ==================== */
 function openProjectModal(projectId) {
     const modal = document.getElementById('projectModal');
     const body = document.getElementById('modalBody');
     if (!modal || !body) return;
 
+    const isEn = currentLang === 'en';
     let content = '';
-    
+
     if (projectId === 'activa') {
-        const isEn = currentLang === 'en';
         content = `
             <div class="modal-header">
-                <h2 class="section-title">${isEn ? 'ACTIVA - Immersive Experience' : 'ACTIVA - Experiencia Inmersiva'}</h2>
-                <p class="section-subtitle">${isEn ? 'A detailed look at the environments and interactions developed.' : 'Un vistazo detallado a los entornos e interacciones desarrollados.'}</p>
+                <h2 class="section-title">${isEn ? 'ACTIVA VR — Immersive Healthcare' : 'ACTIVA VR — Salud Inmersiva'}</h2>
+                <p class="section-subtitle">${isEn ? 'Unreal Engine 5 virtual reality stimulation system for senior care.' : 'Sistema de estimulación en realidad virtual mediante Unreal Engine 5 para residencias de ancianos.'}</p>
             </div>
             
             <div class="modal-video-main">
-                <h3 class="modal-sub-title">${isEn ? 'Corporate Presentation' : 'Presentación Corporativa'}</h3>
+                <h3 class="modal-sub-title">${isEn ? 'Cinematic Presentation' : 'Presentación Cinematográfica'}</h3>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/f2AFb51xiaI" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <div class="modal-grid">
+            <div class="modal-body-layout" style="display: flex; flex-direction: column; gap: 2rem; margin-top: 1rem;">
                 <div class="modal-section">
-                    <h3 class="modal-sub-title">${isEn ? 'The Corral (Corral)' : 'El Corral'}</h3>
-                    <p class="modal-section-desc">${isEn ? 'Focus on cognitive stimulation in outdoor environments.' : 'Enfoque en estimulación cognitiva en entornos exteriores.'}</p>
+                    <h3 class="modal-sub-title">${isEn ? 'Environment Case: The Corral' : 'Entorno: El Corral'}</h3>
+                    <p class="modal-section-desc">${isEn ? 'Designed to stimulate gross motor skills in virtual nature. Includes dynamic physics and interaction nodes.' : 'Diseñado para estimular la motricidad gruesa en naturaleza virtual. Incluye físicas dinámicas y nodos de interacción.'}</p>
                     <div class="video-sub-grid">
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/R3ycOiE2ACY" frameborder="0" allowfullscreen></iframe></div>
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/1kkbzZIGzn4" frameborder="0" allowfullscreen></iframe></div>
-                        <div class="video-container"><iframe src="https://www.youtube.com/embed/_0u_uUOL4YM" frameborder="0" allowfullscreen></iframe></div>
                     </div>
                     <div class="photo-sub-grid">
-                        <img src="Media/Activa/Foto/Fotos Corral/Corral_02.jpg" alt="Corral Detail" class="modal-img" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Corral/Alpacas_01.jpg" alt="Alpacas Detail" class="modal-img" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Corral/Cesta_03.jpg" alt="Cesta Detail" class="modal-img" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Corral/Flores_01.jpg" alt="Flores Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Corral/Corral_02.jpg" alt="Corral View" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Corral/Alpacas_01.jpg" alt="Alpacas Model" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Corral/Flores_01.jpg" alt="Niagara Flowers" class="modal-img" onclick="openLightbox(this.src)">
                     </div>
                 </div>
 
                 <div class="modal-section">
-                    <h3 class="modal-sub-title">${isEn ? 'The House (Casa)' : 'La Casa'}</h3>
-                    <p class="modal-section-desc">${isEn ? 'Daily living activities and fine motor exercises.' : 'Actividades de la vida diaria y ejercicios de motricidad fina.'}</p>
+                    <h3 class="modal-sub-title">${isEn ? 'Environment Case: The House' : 'Entorno: La Casa'}</h3>
+                    <p class="modal-section-desc">${isEn ? 'Replicating everyday home activities for cognitive stimulation and fine motor tasks.' : 'Replicación de actividades del hogar cotidianas para estimulación cognitiva y tareas motoras finas.'}</p>
                     <div class="video-sub-grid">
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/KT-AzZz5kAs" frameborder="0" allowfullscreen></iframe></div>
                         <div class="video-container"><iframe src="https://www.youtube.com/embed/XIJSSghIIic" frameborder="0" allowfullscreen></iframe></div>
-                        <div class="video-container"><iframe src="https://www.youtube.com/embed/Fm6THmivHOU" frameborder="0" allowfullscreen></iframe></div>
                     </div>
                     <div class="photo-sub-grid">
-                        <img src="Media/Activa/Foto/Fotos Casa/Casa_F03.jpg" alt="Casa Detail" class="modal-img" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Casa/Libro_F01.jpg" alt="Libro Detail" class="modal-img" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Casa/Sopa_F03.jpg" alt="Sopa Detail" class="modal-img" onclick="openLightbox(this.src)">
-                        <img src="Media/Activa/Foto/Fotos Casa/Vajilla_F01.jpg" alt="Vajilla Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Casa_F03.jpg" alt="Living Room Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Libro_F01.jpg" alt="Interactions Detail" class="modal-img" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Casa/Sopa_F03.jpg" alt="Kitchen setup" class="modal-img" onclick="openLightbox(this.src)">
                     </div>
                 </div>
             </div>
         `;
-    } else if (projectId === 'unileon') {
-        const isEn = currentLang === 'en';
+    } else if (projectId === 'gestaverso') {
         content = `
             <div class="modal-header">
-                <h2 class="section-title">${isEn ? 'CUENTOS UNILEON - Narrative Experience' : 'CUENTOS UNILEON - Experiencia Narrativa'}</h2>
-                <p class="section-subtitle">${isEn ? 'An interactive storytelling project developed in Unreal Engine 5.' : 'Un proyecto de narrativa interactiva desarrollado en Unreal Engine 5.'}</p>
+                <h2 class="section-title">GESTAVERSO VR</h2>
+                <p class="section-subtitle">${isEn ? 'Virtual environments and support sessions for maternal care.' : 'Entornos virtuales y sesiones de acompañamiento para la maternidad.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'Production Captures & Lighting' : 'Capturas de Producción e Iluminación'}</h3>
+                <p class="modal-section-desc">${isEn ? 'Developing high-fidelity atmospheric spaces designed for relaxation. Programmed Blueprint event triggers and immersive soundscapes.' : 'Desarrollo de espacios atmosféricos de alta fidelidad diseñados para la relajación. Programación de disparadores de eventos mediante Blueprints y paisajes sonoros inmersivos.'}</p>
+                <div class="photo-sub-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <img src="Media/Gestaverso/HighresScreenshot00003.png" alt="Viewport Render 1" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Gestaverso/HighresScreenshot00004.png" alt="Viewport Render 2" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Gestaverso/HighresScreenshot00005.png" alt="Viewport Render 3" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Gestaverso/HighresScreenshot00006.png" alt="Viewport Render 4" class="modal-img" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        `;
+    } else if (projectId === 'unileon') {
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">CUENTOS UNILEON</h2>
+                <p class="section-subtitle">${isEn ? 'Interactive fantasy storytelling experience.' : 'Experiencia interactiva de narrativa de fantasía.'}</p>
             </div>
             
             <div class="modal-video-main">
-                <h3 class="modal-sub-title">${isEn ? 'Project Showcase' : 'Muestra del Proyecto'}</h3>
+                <h3 class="modal-sub-title">${isEn ? 'Cinematic Walkthrough' : 'Recorrido Cinematográfico'}</h3>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/jbF_Am0VOHg" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
             <div class="modal-section">
-                <h3 class="modal-sub-title">${isEn ? 'Project Details' : 'Detalles del Proyecto'}</h3>
-                <p class="modal-section-desc">
-                    ${isEn ? 
-                        'Interactive storytelling experience set in a virtual environment. The focus was on creating a compelling atmosphere and smooth interactions using Blueprints.' : 
-                        'Experiencia de narrativa interactiva ambientada en un entorno virtual. El enfoque estuvo en crear una atmósfera envolvente e interacciones fluidas mediante Blueprints.'}
-                </p>
+                <h3 class="modal-sub-title">${isEn ? 'Scene Composition & Camera Sequences' : 'Composición de Escenas y Secuencias de Cámara'}</h3>
+                <p class="modal-section-desc">${isEn ? 'Cinematic camera tracks set up inside Unreal Sequencer, utilizing dynamic lighting maps and Niagara wind simulations.' : 'Pistas de cámara cinematográficas configuradas dentro de Unreal Sequencer, utilizando mapas de iluminación dinámica y simulaciones de viento Niagara.'}</p>
                 <div class="photo-sub-grid">
-                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0002.png" alt="Unileon Detail 1" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0012.png" alt="Unileon Detail 2" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0067.png" alt="Unileon Detail 3" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0088.png" alt="Unileon Detail 4" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0128.png" alt="Unileon Detail 5" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0257.png" alt="Unileon Detail 6" class="modal-img" onclick="openLightbox(this.src)">
-                </div>
-            </div>
-        `;
-    } else if (projectId === 'gestaverso') {
-        const isEn = currentLang === 'en';
-        content = `
-            <div class="modal-header">
-                <h2 class="section-title">${isEn ? 'GESTA VERSO - Immersive Experience' : 'GESTA VERSO - Experiencia Inmersiva'}</h2>
-                <p class="section-subtitle">${isEn ? 'Interactive storytelling for pregnancy support.' : 'Narrativa interactiva para acompañamiento durante el embarazo.'}</p>
-            </div>
-            
-            <div class="modal-section">
-                <h3 class="modal-sub-title">${isEn ? 'Environment & Exploration' : 'Entorno y Exploración'}</h3>
-                <div class="photo-sub-grid">
-                    <img src="Media/Gestaverso/HighresScreenshot00003.png" alt="Gestaverso 1" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Gestaverso/HighresScreenshot00004.png" alt="Gestaverso 2" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Gestaverso/HighresScreenshot00005.png" alt="Gestaverso 3" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Gestaverso/HighresScreenshot00006.png" alt="Gestaverso 4" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Gestaverso/HighresScreenshot00007.png" alt="Gestaverso 5" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0002.png" alt="Sequence frame 1" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0012.png" alt="Sequence frame 2" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0067.png" alt="Sequence frame 3" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Cuentos_Unileon/NewLevelSequence_0088.png" alt="Sequence frame 4" class="modal-img" onclick="openLightbox(this.src)">
                 </div>
             </div>
         `;
     } else if (projectId === 'industria') {
-        const isEn = currentLang === 'en';
         content = `
             <div class="modal-header">
-                <h2 class="section-title">${isEn ? 'INDUSTRIA DEMO - Training Simulation' : 'INDUSTRIA DEMO - Simulación de Formación'}</h2>
-                <p class="section-subtitle">${isEn ? 'High-fidelity industrial environments for professional training.' : 'Entornos industriales de alta fidelidad para formación profesional.'}</p>
+                <h2 class="section-title">INDUSTRIA DEMO</h2>
+                <p class="section-subtitle">${isEn ? 'Interactive industrial simulator for technical training.' : 'Simulador interactivo industrial para formación técnica.'}</p>
             </div>
             
             <div class="modal-section">
-                <h3 class="modal-sub-title">${isEn ? 'Industrial Scenarios' : 'Escenarios Industriales'}</h3>
-                <div class="photo-sub-grid">
-                    <img src="Media/Industria_Demo/HighresScreenshot00002.png" alt="Industria 1" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Industria_Demo/HighresScreenshot00003.png" alt="Industria 2" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Industria_Demo/HighresScreenshot00005.png" alt="Industria 3" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Industria_Demo/HighresScreenshot00006.png" alt="Industria 4" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Industria_Demo/HighresScreenshot00007.png" alt="Industria 5" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Industria_Demo/HighresScreenshot00008.png" alt="Industria 6" class="modal-img" onclick="openLightbox(this.src)">
+                <h3 class="modal-sub-title">${isEn ? 'Interactive Workspaces & Physics' : 'Espacios de Trabajo Interactivos y Físicas'}</h3>
+                <p class="modal-section-desc">${isEn ? 'Industrial machinery setup with detailed colliders, physics constraints, and interactive control panels programmed with Blueprints.' : 'Configuración de maquinaria industrial con colisionadores detallados, restricciones físicas y paneles de control interactivos programados con Blueprints.'}</p>
+                <div class="photo-sub-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <img src="Media/Industria_Demo/HighresScreenshot00002.png" alt="Industrial workspace" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00003.png" alt="Control panels" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00005.png" alt="Pipes detailing" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Industria_Demo/HighresScreenshot00006.png" alt="Editor view" class="modal-img" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        `;
+    } else if (projectId === 'carnica') {
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">CÁRNICA (XR2Learn)</h2>
+                <p class="section-subtitle">${isEn ? 'Immersive simulation for professional industrial training.' : 'Simulación inmersiva para formación industrial profesional.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'Simulated Procedures' : 'Procedimientos Simulados'}</h3>
+                <p class="modal-section-desc">${isEn ? 'Step-by-step interactive procedures designed in Unreal Engine 5. Focuses on procedural logic, user interface feedback, and collision checks.' : 'Procedimientos interactivos paso a paso diseñados en Unreal Engine 5. Centrado en lógica procedimental, retroalimentación de interfaz de usuario y comprobaciones de colisiones.'}</p>
+                <div class="photo-sub-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <img src="Media/Carnica/Fotos/Image Sequence_017_0000.jpg" alt="Procedure Step 1" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Carnica/Fotos/Image Sequence_018_0000.jpg" alt="Procedure Step 2" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Carnica/Fotos/Image Sequence_019_0000.jpg" alt="Procedure Step 3" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Carnica/Fotos/Image Sequence_020_0000.jpg" alt="Procedure Step 4" class="modal-img" onclick="openLightbox(this.src)">
+                </div>
+            </div>
+        `;
+    } else if (projectId === 'cajero') {
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">${isEn ? 'ATM Interactive Simulator' : 'Simulador de Cajero Automático'}</h2>
+                <p class="section-subtitle">${isEn ? 'Interactive educational application developed in Unreal Engine 5.' : 'Aplicación educativa interactiva desarrollada en Unreal Engine 5.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'Technical Details' : 'Detalles Técnicos'}</h3>
+                <p class="modal-section-desc">
+                    ${isEn ? 
+                        'Designed a 3D widget component system allowing detailed interaction with ATM button clusters and touch screens. Built a robust Blueprint state machine to manage user accounts, transaction flows, and dynamic localized interface text.' : 
+                        'Diseño de un sistema de widgets 3D interactivos para simular botones y pantalla táctil del cajero. Estructuración de una máquina de estados en Blueprints para gestionar cuentas, flujos de transacciones y textos traducidos.'}
+                </p>
+                <div class="project-tags">
+                    <span>3D Widgets</span>
+                    <span>UMG UI</span>
+                    <span>State Machine</span>
+                    <span>Unreal Engine 5</span>
+                </div>
+            </div>
+        `;
+    } else if (projectId === 'ajedrez') {
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">AJEDREZ CON CABEZA</h2>
+                <p class="section-subtitle">${isEn ? 'Chess training platform in digital 3D space.' : 'Plataforma de entrenamiento de ajedrez en entorno digital 3D.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'Plugin Integration & Code Bridge' : 'Integración de Plugins y Conexión de Código'}</h3>
+                <p class="modal-section-desc">
+                    ${isEn ? 
+                        'Integrated custom C++ plugins to evaluate chess state algorithms, coordinate pieces, and bridge communication between Unreal Engine 5 UI and core gameplay databases.' : 
+                        'Integración de plugins en C++ para evaluación de algoritmos de ajedrez, movimiento de piezas y comunicación entre la interfaz de Unreal Engine 5 y la base de datos del juego.'}
+                </p>
+                <div class="project-tags">
+                    <span>C++ Plugins</span>
+                    <span>Unreal Engine 5</span>
+                    <span>Algorithms</span>
+                    <span>Blueprint Integration</span>
+                </div>
+            </div>
+        `;
+    } else if (projectId === 'iberdrola') {
+        content = `
+            <div class="modal-header">
+                <h2 class="section-title">IBERDROLA VR</h2>
+                <p class="section-subtitle">${isEn ? 'Virtual stereoscopic visualization tour.' : 'Tour virtual stereoscópico de visualización.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3 class="modal-sub-title">${isEn ? 'High-Performance 360 Rendering' : 'Renderizado 360 de Alto Rendimiento'}</h3>
+                <p class="modal-section-desc">
+                    ${isEn ? 
+                        'Configured stereoscopic 360 camera rigs inside Unreal Engine to capture environments. Designed optimized material shaders to support clean panoramic projection with minimal VR artifacts.' : 
+                        'Configuración de cámaras estereoscópicas 360 en Unreal Engine. Diseño de shaders de materiales optimizados para proyección panorámica limpia sin artefactos en visores VR.'}
+                </p>
+                <div class="project-tags">
+                    <span>Stereoscopic 360</span>
+                    <span>VR Projection</span>
+                    <span>Unreal Engine 5</span>
+                    <span>Material Shaders</span>
                 </div>
             </div>
         `;
     } else if (projectId === 'odontologia') {
-        const isEn = currentLang === 'en';
         content = `
             <div class="modal-header">
-                <h2 class="section-title">${isEn ? 'DENTISTRY DEMO - 3D Modeling' : 'ODONTOLOGÍA DEMO - Modelado 3D'}</h2>
-                <p class="section-subtitle">${isEn ? 'High-precision technical modeling of dental instruments.' : 'Modelado técnico de alta precisión de instrumental dental.'}</p>
+                <h2 class="section-title">${isEn ? 'DENTISTRY DEMO - 3D Assets' : 'ODONTOLOGÍA DEMO - Assets 3D'}</h2>
+                <p class="section-subtitle">${isEn ? 'High-precision modeling of medical tools.' : 'Modelado de alta precisión de instrumental médico.'}</p>
             </div>
             
             <div class="modal-section">
-                <h3 class="modal-sub-title">${isEn ? '3D Assets & Detail' : 'Assets 3D y Detalle'}</h3>
+                <h3 class="modal-sub-title">${isEn ? 'High-Poly to Low-Poly Workflow' : 'Flujo de High-Poly a Low-Poly'}</h3>
                 <p class="modal-section-desc">
                     ${isEn ? 
-                        'Development of dental burs and instruments with high technical accuracy. Focused on topology and realistic texturing for medical training simulators.' : 
-                        'Desarrollo de fresas e instrumental dental con alta precisión técnica. Enfocado en la topología y el texturizado realista para simuladores de formación médica.'}
+                        'High-precision modeling of dental burs. Followed a clean retopology workflow in Autodesk Maya, baked high-detail normal maps, and textured realistic metal/ceramic materials in Substance Painter for interactive viewport displays.' : 
+                        'Modelado técnico detallado de fresas quirúrgicas. Retopología limpia en Autodesk Maya, horneado de mapas de normales y texturizado de materiales metálicos y cerámicos en Substance Painter para visualizadores interactivos.'}
                 </p>
                 <div class="photo-sub-grid">
-                    <img src="Media/Odontologia/Fotos/A.jpeg" alt="Odontologia A" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Odontologia/Fotos/B.jpeg" alt="Odontologia B" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Odontologia/Fotos/I.jpeg" alt="Odontologia I" class="modal-img" onclick="openLightbox(this.src)">
-                    <img src="Media/Odontologia/Fotos/J.jpeg" alt="Odontologia J" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Odontologia/Fotos/A.jpeg" alt="Burs render A" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Odontologia/Fotos/B.jpeg" alt="Burs render B" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Odontologia/Fotos/I.jpeg" alt="Burs render I" class="modal-img" onclick="openLightbox(this.src)">
+                    <img src="Media/Odontologia/Fotos/J.jpeg" alt="Burs render J" class="modal-img" onclick="openLightbox(this.src)">
                 </div>
             </div>
         `;
@@ -693,7 +695,7 @@ function openProjectModal(projectId) {
 
     body.innerHTML = content;
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Stop scroll
+    document.body.style.overflow = 'hidden';
 }
 
 function closeProjectModal() {
@@ -701,18 +703,17 @@ function closeProjectModal() {
     if (modal) {
         modal.classList.remove('active');
         document.getElementById('modalBody').innerHTML = '';
-        document.body.style.overflow = ''; // Restore scroll
+        document.body.style.overflow = '';
     }
 }
 
-/* ==================== LIGHTBOX LOGIC ==================== */
+/* ==================== LIGHTBOX SYSTEM ==================== */
 function openLightbox(src) {
     const lightbox = document.getElementById('imageLightbox');
     const img = document.getElementById('lightboxImg');
     if (lightbox && img) {
         img.src = src;
         lightbox.classList.add('active');
-        // If we are inside a modal, don't restore body overflow yet
     }
 }
 
@@ -723,7 +724,7 @@ function closeLightbox() {
     }
 }
 
-// Close modal on outside click
+// Global modal close on click outside
 window.addEventListener('click', (e) => {
     const modal = document.getElementById('projectModal');
     if (e.target === modal) closeProjectModal();
