@@ -443,7 +443,7 @@ const enTranslations = {
     "footer_copy": "&copy; 2026 Sergio López Herrero. All rights reserved."
 };
 
-let currentLang = localStorage.getItem('site_lang') || 'es';
+let currentLang = localStorage.getItem('site_lang') || 'en';
 let esTranslations = {};
 
 function initLanguageSwitcher() {
@@ -474,8 +474,12 @@ function initLanguageSwitcher() {
         setLanguage(currentLang === 'es' ? 'en' : 'es');
     });
 
+    // Apply language on page load
     if (currentLang === 'en') {
         setLanguage('en');
+    } else {
+        // Ensure button text is correct even when Spanish is stored
+        langToggle.textContent = 'EN';
     }
 }
 
