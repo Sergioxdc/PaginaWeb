@@ -52,7 +52,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
     <!-- ============ NAVBAR ============ -->
@@ -62,8 +62,8 @@
                 SLH<span class="logo-dot">.</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#demoreel" class="nav-link" data-section="demoreel" data-i18n="nav_demoreel">Demo Reel</a></li>
                 <li><a href="#featured-project" class="nav-link" data-section="featured-project" data-i18n="nav_featured">Proyecto Destacado</a></li>
+                <li><a href="#demoreel" class="nav-link" data-section="demoreel" data-i18n="nav_demoreel">Demo Reel</a></li>
                 <li><a href="#portfolio" class="nav-link" data-section="portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
                 <li><a href="#skills" class="nav-link" data-section="skills" data-i18n="nav_skills">Habilidades</a></li>
                 <li><a href="#behind-scenes" class="nav-link" data-section="behind-scenes" data-i18n="nav_behind">Detrás de Escena</a></li>
@@ -123,44 +123,11 @@
         </div>
     </section>
 
-    <!-- ============ DEMO REEL ============ -->
-    <section class="section demoreel" id="demoreel">
-        <div class="container">
-            <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="demoreel_tag">01. DEMOSTRACIÓN</span>
-                <h2 class="section-title" data-i18n="demoreel_title">Demo Reel</h2>
-            </div>
-            <div class="demoreel-main-showcase reveal-up">
-                <div class="video-wrapper">
-                    <iframe 
-                        id="demoreelPlayer"
-                        src="https://www.youtube.com/embed/7GYlLNVob9Q?enablejsapi=1" 
-                        title="VFX & Real-Time Demo Reel — Sergio López Herrero"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="demoreel-meta">
-                    <div class="demoreel-tabs">
-                        <button class="demoreel-tab active" data-video-id="7GYlLNVob9Q" data-i18n="reel_vfx_tab">VFX y Tiempo Real</button>
-                        <button class="demoreel-tab" data-video-id="e__ePSQ_4oU" data-i18n="reel_3d_tab">Modelado 3D y Render</button>
-                    </div>
-                    <div class="demoreel-info-panel">
-                        <p id="demoreelDesc" data-i18n="reel_vfx_desc">
-                            Trabajo de efectos visuales que incluye sistemas Niagara en tiempo real, simulación, optimización, composición y arte técnico en Unreal Engine 5.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ============ FEATURED PROJECT (CASE STUDY) ============ -->
     <section class="section featured-project" id="featured-project">
         <div class="container">
             <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="featured_tag">02. PROYECTO PRINCIPAL</span>
+                <span class="section-tag" data-i18n="featured_tag">01. PROYECTO PRINCIPAL</span>
                 <h2 class="section-title" data-i18n="featured_title">Caso de Estudio ACTIVA VR</h2>
             </div>
             
@@ -224,6 +191,39 @@
                         <button class="btn btn-outline" onclick="openProjectModal('activa')" data-i18n="proj_details">
                             Explorar Detalles
                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DEMO REEL ============ -->
+    <section class="section demoreel" id="demoreel">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag" data-i18n="demoreel_tag">02. DEMOSTRACIÓN</span>
+                <h2 class="section-title" data-i18n="demoreel_title">Demo Reel</h2>
+            </div>
+            <div class="demoreel-main-showcase reveal-up">
+                <div class="video-wrapper">
+                    <iframe 
+                        id="demoreelPlayer"
+                        src="https://www.youtube.com/embed/e__ePSQ_4oU?enablejsapi=1" 
+                        title="3D Demo Reel — Sergio López Herrero"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="demoreel-meta">
+                    <div class="demoreel-tabs">
+                        <button class="demoreel-tab active" data-video-id="e__ePSQ_4oU" data-i18n="reel_3d_tab">Modelado 3D y Render</button>
+                        <button class="demoreel-tab" data-video-id="7GYlLNVob9Q" data-i18n="reel_vfx_tab">VFX y Tiempo Real</button>
+                    </div>
+                    <div class="demoreel-info-panel">
+                        <p id="demoreelDesc" data-i18n="reel_3d_desc">
+                            Muestra de proyectos de modelado 3D, texturizado y renderizado creados con herramientas estándar de la industria para pipelines profesionales.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -842,6 +842,6 @@
         <img id="lightboxImg" src="" alt="Vista Ampliada">
     </div>
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>
