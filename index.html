@@ -32,7 +32,7 @@
       "@type": "Person",
       "name": "Sergio López Herrero",
       "jobTitle": "Unreal Engine 5 Developer & Technical Artist",
-      "url": "https://sergiolopez.dev",
+      "url": "https://sergioxdc.github.io/PaginaWeb/",
       "sameAs": [
         "https://www.linkedin.com",
         "https://www.artstation.com",
@@ -52,7 +52,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=17">
+    <link rel="stylesheet" href="styles.css?v=18">
 </head>
 <body>
     <!-- ============ NAVBAR ============ -->
@@ -62,13 +62,13 @@
                 SLH<span class="logo-dot">.</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#featured-project" class="nav-link" data-section="featured-project" data-i18n="nav_featured">Proyecto Destacado</a></li>
                 <li><a href="#demoreel" class="nav-link" data-section="demoreel" data-i18n="nav_demoreel">Demo Reel</a></li>
-                <li><a href="#portfolio" class="nav-link" data-section="portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
-                <li><a href="#skills" class="nav-link" data-section="skills" data-i18n="nav_skills">Habilidades</a></li>
-                <li><a href="#behind-scenes" class="nav-link" data-section="behind-scenes" data-i18n="nav_behind">Detrás de Escena</a></li>
-                <li><a href="#timeline" class="nav-link" data-section="timeline" data-i18n="nav_timeline">Trayectoria</a></li>
-                <li><a href="#contact" class="nav-link" data-section="contact" data-i18n="nav_contact">Contacto</a></li>
+                <li><a href="#featured-project" class="nav-link" data-section="featured-project" data-i18n="nav_featured">Featured</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills" data-i18n="nav_skills">Skills</a></li>
+                <li><a href="#behind-scenes" class="nav-link" data-section="behind-scenes" data-i18n="nav_behind">Behind</a></li>
+                <li><a href="#portfolio" class="nav-link" data-section="portfolio" data-i18n="nav_portfolio">Projects</a></li>
+                <li><a href="#timeline" class="nav-link" data-section="timeline" data-i18n="nav_timeline">Timeline</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact" data-i18n="nav_contact">Contact</a></li>
                 <li>
                     <button id="langToggle" class="lang-toggle-btn" aria-label="Change language">ES</button>
                 </li>
@@ -83,43 +83,76 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
+        <!-- YouTube video as full-screen background -->
         <div class="hero-video-container">
-            <video class="hero-video-bg" autoplay muted loop playsinline poster="Media/Gestaverso/HighresScreenshot00003.png" aria-label="Compilación cinematográfica en tiempo real de Unreal Engine 5">
-                <source src="Media/hero_reel.mp4" type="video/mp4">
-            </video>
+            <div class="hero-yt-bg">
+                <iframe
+                    src="https://www.youtube.com/embed/f2AFb51xiaI?autoplay=1&mute=1&loop=1&playlist=f2AFb51xiaI&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    aria-label="ACTIVA VR — Unreal Engine 5 showreel"
+                    title="Hero background reel">
+                </iframe>
+            </div>
             <div class="hero-video-overlay"></div>
         </div>
         <div class="hero-content">
             <div class="hero-badge reveal-up">
                 <span class="badge-dot"></span>
-                <span data-i18n="hero_badge">Disponible para Roles Senior</span>
+                <span data-i18n="hero_badge">Available for Senior Roles</span>
             </div>
-            <h1 class="hero-name reveal-up">
-                Sergio López <br/>
-                <span class="hero-surname">Herrero</span>
-            </h1>
-            <div class="hero-title-wrapper reveal-up">
-                <span class="hero-title-item">Desarrollador Unreal Engine 5</span>
-                <span class="hero-title-divider">·</span>
-                <span class="hero-title-item">Technical Artist</span>
-                <span class="hero-title-divider">·</span>
-                <span class="hero-title-item">Real-Time 3D / XR</span>
+            <h1 class="hero-name reveal-up">Sergio López Herrero</h1>
+            <!-- Role cycler: JS swaps the active span -->
+            <div class="hero-roles reveal-up" aria-label="Roles profesionales">
+                <span class="hero-role active">Unreal Engine 5 Developer</span>
+                <span class="hero-role">Technical Artist</span>
+                <span class="hero-role">XR / VR Developer</span>
+                <span class="hero-role">Real-Time 3D</span>
             </div>
             <p class="hero-tagline reveal-up" data-i18n="hero_tagline">
-                Pionero en la creación de entornos interactivos en tiempo real, flujos de realidad virtual y programación avanzada de sistemas interactivos.
+                Pioneering the future of real-time environments, virtual reality pipelines, and advanced interactive systems.
             </p>
             <div class="hero-cta reveal-up">
-                <a href="#featured-project" class="btn btn-primary" data-i18n="hero_btn_portfolio">
-                    Ver Caso de Estudio
-                </a>
-                <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">
-                    Contactar
-                </a>
+                <a href="#portfolio" class="btn btn-primary" data-i18n="hero_btn_portfolio">View Projects</a>
+                <a href="Media/CV_Sergio_Lopez.pdf" download class="btn btn-outline" data-i18n="hero_btn_cv">Download Resume</a>
             </div>
         </div>
         <div class="hero-scroll-indicator">
-            <span class="scroll-text" data-i18n="hero_scroll">Haz scroll para explorar</span>
+            <span class="scroll-text" data-i18n="hero_scroll">Scroll to explore</span>
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ DEMO REEL ============ -->
+    <section class="section demoreel" id="demoreel">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag" data-i18n="demoreel_tag">01. SHOWCASE</span>
+                <h2 class="section-title" data-i18n="demoreel_title">Demo Reel</h2>
+            </div>
+            <div class="demoreel-main-showcase reveal-up">
+                <div class="video-wrapper">
+                    <iframe
+                        id="demoreelPlayer"
+                        src="https://www.youtube.com/embed/e__ePSQ_4oU?enablejsapi=1"
+                        title="3D Demo Reel — Sergio López Herrero"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="demoreel-meta">
+                    <div class="demoreel-tabs">
+                        <button class="demoreel-tab active" data-video-id="e__ePSQ_4oU" data-i18n="reel_3d_tab">3D Modeling &amp; Rendering</button>
+                        <button class="demoreel-tab" data-video-id="7GYlLNVob9Q" data-i18n="reel_vfx_tab">VFX &amp; Real-Time</button>
+                    </div>
+                    <div class="demoreel-info-panel">
+                        <p id="demoreelDesc" data-i18n="reel_3d_desc">
+                            A showcase of 3D modeling, texturing, and rendering projects created with industry-standard tools for professional pipelines.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -197,38 +230,7 @@
         </div>
     </section>
 
-    <!-- ============ DEMO REEL ============ -->
-    <section class="section demoreel" id="demoreel">
-        <div class="container">
-            <div class="section-header reveal-up">
-                <span class="section-tag" data-i18n="demoreel_tag">02. DEMOSTRACIÓN</span>
-                <h2 class="section-title" data-i18n="demoreel_title">Demo Reel</h2>
-            </div>
-            <div class="demoreel-main-showcase reveal-up">
-                <div class="video-wrapper">
-                    <iframe 
-                        id="demoreelPlayer"
-                        src="https://www.youtube.com/embed/e__ePSQ_4oU?enablejsapi=1" 
-                        title="3D Demo Reel — Sergio López Herrero"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="demoreel-meta">
-                    <div class="demoreel-tabs">
-                        <button class="demoreel-tab active" data-video-id="e__ePSQ_4oU" data-i18n="reel_3d_tab">Modelado 3D y Render</button>
-                        <button class="demoreel-tab" data-video-id="7GYlLNVob9Q" data-i18n="reel_vfx_tab">VFX y Tiempo Real</button>
-                    </div>
-                    <div class="demoreel-info-panel">
-                        <p id="demoreelDesc" data-i18n="reel_3d_desc">
-                            Muestra de proyectos de modelado 3D, texturizado y renderizado creados con herramientas estándar de la industria para pipelines profesionales.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- ============ ABOUT ME ============ -->
     <section class="section about" id="about">
@@ -343,46 +345,58 @@
             
             <div class="bts-gallery reveal-up">
                 <!-- BTS Item 1 -->
-                <div class="bts-card">
+                <div class="bts-card" onclick="openLightbox('Media/Cuentos_Unileon/NewLevelSequence_0128.png')">
                     <div class="bts-media">
-                        <img src="Media/Cuentos_Unileon/NewLevelSequence_0128.png" alt="Vista del Secuenciador en Unreal Editor" onclick="openLightbox(this.src)">
+                        <img src="Media/Cuentos_Unileon/NewLevelSequence_0128.png" alt="Vista del Secuenciador en Unreal Editor" loading="lazy">
                     </div>
-                    <div class="bts-info">
-                        <h3 data-i18n="bts_1_title">Secuenciador Cinematográfico</h3>
-                        <p data-i18n="bts_1_desc">Ajustes de secuencias de cámaras y keyframes en el secuenciador de Unreal Engine.</p>
+                    <div class="bts-overlay">
+                        <h3 data-i18n="bts_1_title">Cinematic Sequencer</h3>
+                        <p data-i18n="bts_1_desc">Camera sequence settings and keyframe tracks inside the Unreal Engine Level Sequencer.</p>
+                    </div>
+                    <div class="bts-zoom-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                     </div>
                 </div>
                 
                 <!-- BTS Item 2 -->
-                <div class="bts-card">
+                <div class="bts-card" onclick="openLightbox('Media/Gestaverso/HighresScreenshot00007.png')">
                     <div class="bts-media">
-                        <img src="Media/Gestaverso/HighresScreenshot00007.png" alt="Viewport de iluminación en Unreal Engine" onclick="openLightbox(this.src)">
+                        <img src="Media/Gestaverso/HighresScreenshot00007.png" alt="Viewport de iluminación en Unreal Engine" loading="lazy">
                     </div>
-                    <div class="bts-info">
-                        <h3 data-i18n="bts_2_title">Iluminación y Atmósfera</h3>
-                        <p data-i18n="bts_2_desc">Diseño de iluminación estática horneada, integración de niebla volumétrica y optimización en el editor.</p>
+                    <div class="bts-overlay">
+                        <h3 data-i18n="bts_2_title">Lighting &amp; Atmosphere</h3>
+                        <p data-i18n="bts_2_desc">Baked static lighting design, volumetric fog integration, and mesh optimization inside the editor.</p>
+                    </div>
+                    <div class="bts-zoom-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                     </div>
                 </div>
                 
                 <!-- BTS Item 3 -->
-                <div class="bts-card">
+                <div class="bts-card" onclick="openLightbox('Media/Activa/Foto/Fotos Corral/Nubes_03.jpg')">
                     <div class="bts-media">
-                        <img src="Media/Activa/Foto/Fotos Corral/Nubes_03.jpg" alt="Niagara sky particles" onclick="openLightbox(this.src)">
+                        <img src="Media/Activa/Foto/Fotos Corral/Nubes_03.jpg" alt="Niagara sky particles" loading="lazy">
                     </div>
-                    <div class="bts-info">
-                        <h3 data-i18n="bts_3_title">Sistemas de Partículas Climáticas</h3>
-                        <p data-i18n="bts_3_desc">Configuración de cúpulas de cielo, partículas de nubes y setups meteorológicos en Niagara.</p>
+                    <div class="bts-overlay">
+                        <h3 data-i18n="bts_3_title">Weather Particle Systems</h3>
+                        <p data-i18n="bts_3_desc">Sky dome, cloud particles, and weather Niagara graph configuration.</p>
+                    </div>
+                    <div class="bts-zoom-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                     </div>
                 </div>
                 
                 <!-- BTS Item 4 -->
-                <div class="bts-card">
+                <div class="bts-card" onclick="openLightbox('Media/Carnica/Fotos/Image Sequence_020_0000.jpg')">
                     <div class="bts-media">
-                        <img src="Media/Carnica/Fotos/Image Sequence_020_0000.jpg" alt="Shaders y material graph" onclick="openLightbox(this.src)">
+                        <img src="Media/Carnica/Fotos/Image Sequence_020_0000.jpg" alt="Shaders y material graph" loading="lazy">
                     </div>
-                    <div class="bts-info">
-                        <h3 data-i18n="bts_4_title">Verificación de Materiales PBR</h3>
-                        <p data-i18n="bts_4_desc">Comprobación de rugosidad, normales y parámetros de reflectividad metálica bajo iluminación de producción.</p>
+                    <div class="bts-overlay">
+                        <h3 data-i18n="bts_4_title">PBR Material Verification</h3>
+                        <p data-i18n="bts_4_desc">Testing roughness, normals, and metallic specular parameters under production lighting.</p>
+                    </div>
+                    <div class="bts-zoom-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
                     </div>
                 </div>
             </div>
@@ -762,7 +776,7 @@
                 </a>
                 
                 <!-- LinkedIn -->
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-action-card">
+                <a href="https://www.linkedin.com/in/sergioxdc/" target="_blank" rel="noopener noreferrer" class="contact-action-card">
                     <div class="contact-action-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                     </div>
@@ -821,6 +835,6 @@
         <img id="lightboxImg" src="" alt="Vista Ampliada">
     </div>
 
-    <script src="script.js?v=17"></script>
+    <script src="script.js?v=18"></script>
 </body>
 </html>

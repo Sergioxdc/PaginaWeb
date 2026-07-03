@@ -300,10 +300,30 @@ a:focus-visible {
     z-index: 1;
 }
 
-.hero-video-bg {
+/* YouTube iframe hero background */
+.hero-yt-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+.hero-yt-bg iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 16:9 ratio trick: cover viewport */
+    width: 177.78vh;  /* 100/56.25 * 100 */
+    min-width: 100%;
+    height: 56.25vw;  /* 9/16 * 100 */
+    min-height: 100%;
+    pointer-events: none;
+    border: 0;
 }
 
 .hero-video-overlay {
@@ -312,8 +332,9 @@ a:focus-visible {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(4, 8, 21, 0.4) 0%, rgba(4, 8, 21, 0.95) 90%), 
-                linear-gradient(0deg, var(--bg-primary) 0%, transparent 40%);
+    background: 
+        radial-gradient(ellipse at 50% 40%, rgba(4,8,21,0.35) 0%, rgba(4,8,21,0.80) 70%),
+        linear-gradient(0deg, var(--bg-primary) 0%, rgba(4,8,21,0.2) 30%, transparent 60%);
     z-index: 2;
 }
 
@@ -322,7 +343,7 @@ a:focus-visible {
     z-index: 3;
     text-align: center;
     padding: 0 2rem;
-    max-width: 960px;
+    max-width: 1000px;
     margin-top: 4rem;
 }
 
@@ -333,57 +354,78 @@ a:focus-visible {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--accent-cyan);
-    border: 1px solid rgba(0, 240, 255, 0.15);
-    background: rgba(4, 8, 21, 0.6);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    background: rgba(4, 8, 21, 0.7);
     padding: 0.4rem 1rem;
     border-radius: 100px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     backdrop-filter: blur(8px);
+    letter-spacing: 1px;
 }
 .badge-dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     background: var(--accent-cyan);
     border-radius: 50%;
     animation: pulse-dot 1.5s ease-in-out infinite;
+    box-shadow: 0 0 6px var(--accent-cyan);
 }
 @keyframes pulse-dot {
     0%, 100% { opacity: 0.3; transform: scale(0.9); }
-    50% { opacity: 1; transform: scale(1.1); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
 .hero-name {
     font-family: var(--font-heading);
-    font-size: clamp(2.75rem, 8vw, 5.25rem);
+    font-size: clamp(3rem, 9vw, 6.5rem);
     font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -2px;
-    margin-bottom: 1rem;
-}
-.hero-surname {
-    color: var(--text-secondary);
+    line-height: 1.0;
+    letter-spacing: -3px;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.hero-title-wrapper {
+/* Animated role cycler */
+.hero-roles {
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    font-family: var(--font-mono);
-    font-size: clamp(0.85rem, 2vw, 1.05rem);
-    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+    overflow: hidden;
+    position: relative;
 }
-.hero-title-divider {
-    color: var(--border-hover);
+.hero-role {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+.hero-role.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.hero-role.exit {
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 .hero-tagline {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--text-secondary);
-    max-width: 650px;
-    margin: 0 auto 2.5rem auto;
+    max-width: 620px;
+    margin: 0 auto 2.75rem auto;
+    line-height: 1.7;
+    font-weight: 400;
 }
 
 .hero-cta {
@@ -477,13 +519,17 @@ a:focus-visible {
 }
 
 .demoreel-main-showcase {
-    max-width: 1080px;
+    max-width: 1100px;
     margin: 0 auto;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0,240,255,0.04);
+    transition: box-shadow var(--transition-medium);
+}
+.demoreel-main-showcase:hover {
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 30px rgba(0,240,255,0.06);
 }
 
 .video-wrapper {
@@ -746,11 +792,13 @@ a:focus-visible {
     padding-left: 1.25rem;
 }
 .skill-card ul li::before {
-    content: '•';
+    content: '\2713'; /* checkmark */
     color: var(--accent-cyan);
-    font-weight: 800;
+    font-weight: 700;
+    font-size: 0.9rem;
     position: absolute;
     left: 0;
+    top: 0;
 }
 
 /* ==================== BEHIND THE SCENES ==================== */
@@ -761,51 +809,83 @@ a:focus-visible {
 .bts-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: 2px; /* tight mosaic gap */
 }
 
 .bts-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
+    position: relative;
     overflow: hidden;
-    transition: all var(--transition-medium);
+    cursor: pointer;
+    aspect-ratio: 16/10;
+    background: #000;
 }
-.bts-card:hover {
-    border-color: var(--accent-cyan);
-    transform: translateY(-4px);
-    box-shadow: var(--border-glow);
+.bts-card:hover .bts-media img {
+    transform: scale(1.08);
+    filter: brightness(0.6);
+}
+.bts-card:hover .bts-overlay {
+    opacity: 1;
 }
 
 .bts-media {
-    position: relative;
-    aspect-ratio: 16/10;
-    overflow: hidden;
-    background: #000;
-    cursor: pointer;
+    position: absolute;
+    inset: 0;
 }
 .bts-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-medium);
-}
-.bts-card:hover .bts-media img {
-    transform: scale(1.05);
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
 }
 
-.bts-info {
-    padding: 1.75rem 2rem;
+/* Text overlay that appears on hover */
+.bts-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(4,8,21,0.92) 0%, rgba(4,8,21,0.3) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
 }
-.bts-info h3 {
+.bts-overlay h3 {
     font-size: 1.15rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
 }
-.bts-info p {
-    font-size: 0.9rem;
+.bts-overlay p {
+    font-size: 0.85rem;
     color: var(--text-secondary);
+    line-height: 1.5;
 }
+/* Click-to-zoom icon */
+.bts-zoom-icon {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,240,255,0.1);
+    border: 1px solid rgba(0,240,255,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-cyan);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.bts-card:hover .bts-zoom-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Legacy bts-info hidden (now uses overlay) */
+.bts-info { display: none; }
 
 /* ==================== PORTFOLIO GRID ==================== */
 .portfolio {
@@ -867,7 +947,7 @@ a:focus-visible {
 
 .project-visual {
     position: relative;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9;
     overflow: hidden;
     background: var(--bg-secondary);
     display: flex;
@@ -891,7 +971,7 @@ a:focus-visible {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(4, 8, 21, 0.9) 0%, transparent 70%);
+    background: linear-gradient(0deg, rgba(4, 8, 21, 0.95) 0%, rgba(4,8,21,0.3) 60%, transparent 100%);
     opacity: 0;
     display: flex;
     justify-content: space-between;
@@ -901,6 +981,12 @@ a:focus-visible {
 }
 .project-card:hover .project-overlay {
     opacity: 1;
+}
+.project-card:hover .project-visual img {
+    transform: scale(1.05);
+}
+.project-visual img {
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
 }
 
 .overlay-role {
@@ -1429,7 +1515,10 @@ a:focus-visible {
     }
     .bts-gallery {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 0;
+    }
+    .bts-card {
+        aspect-ratio: 16/9;
     }
 }
 

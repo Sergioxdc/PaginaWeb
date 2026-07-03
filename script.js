@@ -11,7 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initPortfolioFilters();
     initSmoothScroll();
     initLanguageSwitcher();
+    initHeroRoleCycler();
 });
+
+/* ==================== HERO ROLE CYCLER ==================== */
+function initHeroRoleCycler() {
+    const roles = document.querySelectorAll('.hero-role');
+    if (!roles.length) return;
+    let current = 0;
+
+    setInterval(() => {
+        // Exit current
+        roles[current].classList.remove('active');
+        roles[current].classList.add('exit');
+        const exiting = current;
+        setTimeout(() => roles[exiting].classList.remove('exit'), 600);
+
+        // Move to next
+        current = (current + 1) % roles.length;
+        roles[current].classList.add('active');
+    }, 2500);
+}
 
 /* ==================== PARTICLE SYSTEM ==================== */
 function initParticles() {
@@ -329,7 +349,8 @@ const enTranslations = {
     // Hero
     "hero_badge": "Available for Senior Roles",
     "hero_tagline": "Pioneering the future of real-time environments, virtual reality pipelines, and advanced interactive systems.",
-    "hero_btn_portfolio": "View Case Study",
+    "hero_btn_portfolio": "View Projects",
+    "hero_btn_cv": "Download Resume",
     "hero_btn_contact": "Get in Touch",
     "hero_scroll": "Scroll to explore",
 
