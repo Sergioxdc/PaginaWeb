@@ -365,6 +365,14 @@ const enTranslations = {
     "behind_tag": "05. WORKFLOW",
     "behind_title": "Behind the Scenes",
     "behind_desc": "A look inside the Unreal Editor, displaying real Blueprint systems, shader configurations, and wireframe meshes.",
+    "bts_1_title": "Cinematic Sequencer",
+    "bts_1_desc": "Camera sequence settings and keyframe tracks inside the Unreal Engine Level Sequencer.",
+    "bts_2_title": "Lighting & Atmosphere",
+    "bts_2_desc": "Baked static lighting design, volumetric fog integration, and mesh optimization inside the editor.",
+    "bts_3_title": "Weather Particle Systems",
+    "bts_3_desc": "Sky dome, cloud particles, and weather Niagara graph configuration.",
+    "bts_4_title": "PBR Material Verification",
+    "bts_4_desc": "Testing roughness, normals, and metallic specular parameters under production lighting.",
 
     // Portfolio
     "portfolio_tag": "06. ARCHIVE",
